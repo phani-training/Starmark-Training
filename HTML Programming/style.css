@@ -1,0 +1,22 @@
+h1{
+    color: darkcyan;
+    background-color: bisque;
+    text-align: center;
+    padding: 20px;
+    margin-right: 25px;
+}
+
+a{
+    display: inline-block;
+    background-color: burlywood;
+    color: aliceblue;
+    margin: 10px;
+    padding: 10px;
+}
+nav{
+    text-align: center;
+}
+img{
+    width: 45%;
+    height: 300px;
+}

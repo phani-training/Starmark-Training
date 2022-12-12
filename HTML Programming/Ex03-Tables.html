@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Tables in HTML</title>
+</head>
+<body>
+    <div>
+        <h1>Tables for HTML Documents</h1>
+        <hr>
+        <nav>
+            <div>
+                <a href="./Ex01-Basics.html">Home</a>
+                <a href="./Ex02-Lists.html">Lists</a>
+                <a href="./Ex03-Tables.html">Tables</a>
+                <a href="./Ex04-AnchorTags.html">Hyper Links</a>
+            </div>
+        </nav>
+        <div>
+            <h2>Tables</h2>
+            <p>
+                Tables are used to present the data in a tabular format. It could a list of employee data, or a Book data or a List of patients of a Clinic. <br/>
+                Most of the time, contents of the table data are available dynamically, propably the data might come from a Cloud Environment or a Service that gives the data as JavaScript objects. 
+            </p>
+            <p>
+                <h2>Points to remember:</h2>
+                <ul>
+                    <li>Table can be created using &lt;table&gt; Tag.</li>
+                    <li>It will have 2 sections: tr as Table's Row and td as Table's data which will be a column data. </li>
+                    <li>If U want to place heading to the column, it should replace td with th</li>
+                    <li>U can have border attribute to set the border along with other attributes like width and height</li>
+                    <li>We recommend to use CSS to apply styles to the tables instead of old attributes. </li>
+                    <li>U can use optional Tags like tfoot to represent the footer of the Table.</li>
+                </ul>  
+            </p>
+            <table border="1" width="100%">
+                <tr>
+                    <td rowspan="6">Contents of the Employee List:</td>
+                </tr>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Address</th>
+                    <th>Employee Salary</th>
+                </tr>
+                <tr>
+                    <td>123</td>
+                    <td>Phani Raj B.N.</td>
+                    <td>Bangalore</td>
+                    <td>67000</td>
+                </tr>
+                <tr>
+                    <td>124</td>
+                    <td>Vinod Kumar</td>
+                    <td>Vizag</td>
+                    <td>80000</td>
+                </tr>
+                <tr>
+                    <td>125</td>
+                    <td>Banu Prakash</td>
+                    <td>Mysore</td>
+                    <td>65000</td>
+                </tr>
+                <tr>
+                    <td>126</td>
+                    <td>JoyDip Mondal</td>
+                    <td>Kolkata</td>
+                    <td>75000</td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" style="text-align: center;">End of the Records</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
