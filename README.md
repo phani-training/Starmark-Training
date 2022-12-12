@@ -14,9 +14,38 @@ Induction Training for 60 Days# Dotnet training
 - HTML Content are all text based. 
 - HyperText is some kind of Textual Presentation where the content will have links which can lead to another content and so forth....
 - Markups make the Pages of the HTML. Even though they are not mandatory, it is recommended to have the markups and their clean closures. 
-- Basic HTML Tags:
+- - Basic HTML Tags:
 	1. h1...h6 ->Tags for headings of the document
 	2. div and p->Sections of the Document. They dont have any formatting style in them. U can use some formatting tags for achieving them. 
 	3. hr -> For creating horizontal lines as a barriers to UR Document for clean seperation. 
-	4. br -> To create Line Breaks within the HTML Document.  
+	4. br -> To create Line Breaks within the HTML Document.
+	5. section, header, footer, article From HTML5, we have some new tags for the division of the content. They work similar to Divs and Ps but are intended for dividing UR content in more readable manner.
+- For provide styles to the HTML Pages, we use CSS(Cascading Style Sheets). Basically it provides the format of the content on the HTML Document.    
+Sample HTML File:
+```
+<html>
+    <head>
+        <title>This is the Title of the Page</title>
+    </head>
+    <body>
+        <h1>Heading for the Page</h1>
+        <hr>
+        <div>
+            <h2>Sub heading of the Document</h2>
+            This is a sample content of the HTML that I want to display on the Web Page<br/>
+            This example will show U how to create Web Pages in UR Application Development.
+            <p>
+                This is another paragraph of the Document.We use paragraphs for seperation of the logical content of the Web Page. Paragraphs are the smaller versions of the div. 
+            </p> 
+        </div>
+        <div>
+            <h2>2nd Sub heading of the Document</h2>
+            There are divisions within my page that I want to show for better readability
+        </div>
+        <section>
+            art
+        </section>
+    </body>
+</html>
+```
   
