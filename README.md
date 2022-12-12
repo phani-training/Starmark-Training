@@ -49,3 +49,10 @@ Sample HTML File:
 </html>
 ```
   
+- Use ordered lists <ol> or unordered lists<ul> to perform lists in your document. Example is shared as Ex02-Lists.html.
+- Use table and within it td and tr to create Tables, Columns and Rows in a HTML Document. Example is shared as Ex03-Tables.html.
+- Create Links in your html pages using a Tags. Example is shared as Ex04-Images.html.	
+- Images can be added using Img Tag and with it src attribute to set the location of the image. Example is shared as Ex05-Images.html.
+- HTML comes with its own set of Formatting tags that can be used to format the content of the HTML documents. Example is shared as Ex06-Formatting.html.
+- New in HTML 5 are the Tags on adding Audio and Video files in the HTML Document. Earlier, we used to use 3rd party plugins like ADOBE Flash and Microsoft SILVERLIGHT to achive it. Now you can do the same without external pligins. Example is shared as Ex07-AudioVideo.html. 	
+	
