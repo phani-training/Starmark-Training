@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function onSubmit(){
+            //get all the values. 
+            const name = document.getElementById("txtName").value;
+            const salary = document.getElementById("txtSalary").value;
+            const rating = document.getElementById("txtRating").value;
+            const data = {"Name" : name, "Salary" : salary, "Rate" : rating} 
+            console.log(data)
+        }
+    </script>
+</head>
+<body>
+    <h1>Intro to HTML forms</h1>
+    <nav>
+        <a href="./Ex01-Basics.html">Home</a>
+        <a href="./Ex02-Lists.html">Lists</a>
+        <a href="./Ex03-Tables.html">Tables</a>
+        <a href="./Ex04-AnchorTags.html">Hyper Links</a>
+        <a href="./Ex08-Forms.html">HTML Forms</a>
+    </nav>
+    <hr>
+    <div>   
+        <h1>About Forms</h1>
+        <p>
+            Forms are the way to take inputs from the user for UR application. Forms work with Server side technologies for storing, processing and rendering the data based on the content that is sent to the server.<br>
+            A server, A web server is a software installed in large machines that will process requests made by the users across the internet to provide web content. This server will host the Web Application and will handle all kinds of Requests using HTTP protocol. <br>
+            We have server side technologies like ASP, ASP.NET, JSP, PHP that will facilitate the processing of the Requests made over HTTP. <br>
+            Every Http Request is returned as HTTP Response from the server. Response could a Page that the user has requested or a data. 
+        </p>
+        <p>
+            Forms send the content(Inputs given by the user) to the server in 2 ways: GET and POST. Get sends the info thru URL. This is not safe. Another way is to POST the data using BODY Content of the HTTP.
+            Forms will have tags like input Tag that will take input from the users. By default, all input tags are Edit boxes. 
+        </p>
+        <p>
+            <ul>
+                <li>Form Tag is used to create a form in a Web Page.</li>
+                <li>method attribute is used to tell the browser how the content is transfered to the server</li>
+                <li>action attribute is used to define the function that the server uses to process the posted data</li>
+                <li>Inputs given by the user can also be processed using Client side Programming languages like JavaScript</li>
+                <li>All HTML Documents are programmatically represented as objects in a tree view manner. We call that as DOM(Document Object Model). </li>
+                <li>Using the DOM functions, we can get access to any element of the document by using a method called getElementByxxx </li>
+                <li>U can get access to elements based on Id, Tags or CSS Classes.</li>
+                <li>DOM methods can be called in the HTML document under &lt;script&gt; tag.</li>
+            </ul>
+        </p>
+
+    </div>
+    <form>
+    <p>
+        <input type="text" id="txtName" placeholder="Enter the Name" />
+    </p>
+    <p>
+        <input type="number" id="txtSalary" placeholder="Enter the Salary" />
+    </p>
+    <p>
+        Enter the Date of Birth:
+        <input type="date" id="txtDate" placeholder="Enter the Date of Birth" />
+    </p>
+    <p>
+        <input type="email" id="txtEmail" placeholder="Enter the Email Address" />
+    </p>
+    <p>
+        Rate our App: 
+        <input type="range" min="1" max="10" value="5" id="txtRating"/>
+    </p>
+    <p>
+        <input type="button" onclick="onSubmit()" value="Submit"/>
+        <input type="reset" value="Clear"/>
+    </p>
+    </form>
+</body>
+</html>

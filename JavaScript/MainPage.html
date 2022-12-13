@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="Ex05-Arrays.js"></script>
+    <style>
+        div{
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 5px;
+            width: 45%;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        </style>
+    <title>Document</title>
+    <script>
+        function onLoad() {
+            //Get the reference of the element called lstItems
+            const ol = document.getElementById("lstItems");
+            //For of loop to iterate thro the elements of the array. 
+            for (const item of fruits) {
+                const value = "<li>" + item + "</li>"
+                ol.innerHTML += value; //operator to append the content
+            }
+            forLoopExample(ol);
+        }
+        function onAddClick(){
+            alert(addFunc(123,23));
+        }
+        
+        function onSubClick(){
+            const res = subFunc(123,23);
+            alert(res);
+        }
+        
+        function onMulClick(){
+            const res = mulFunc(123,23);
+            alert(res);
+        }
+        
+        </script>
+</head>
+<body onload="onLoad()">
+    <div>
+        <h2>Math Calculator program</h2>
+        <hr>
+        <input id="txtFirstValue" onchange="onCheck()" placeholder="Enter the First Value"/>
+        <select id="operator">
+            <option>+</option>
+            <option>-</option>
+            <option>X</option>
+            <option>/</option>
+        </select>
+        <input id="txtSecondValue" placeholder="Enter the second value"/>
+        <button onclick="onClick()">=</button>
+        <span id="spResult">The result comes here</span>
+    </div>
+    <div>
+        <h2>Using Functions Demo</h2>
+        <hr>
+        <button onclick="onAddClick()">Normal Method</button>
+        <button onclick="onSubClick()">Anonymous Method</button>
+        <button onclick="onMulClick()">Lambda Method</button>
+        <button>Other Method</button>
+    </div>
+    <div>
+        <h1>Arrays Example</h1>
+        <ol id="lstItems"></ol>
+    </div>
+</body>
+</html>
