@@ -17,13 +17,15 @@
                 `;
                 return row;
             }
-            
-            window.addEventListener("load", function(){
+            function populate(){
                 const table = document.querySelector("#tblRecords");
                 for(const emp of data){
                     let row = createRow(emp);
                     table.appendChild(row);
                 }
+            }
+            window.addEventListener("load", function(){
+                populate();
             })
             //This function will be called when the user clicks the Edit link in the Nav Section. 
             function onEdit() {
@@ -33,10 +35,30 @@
                     document.getElementById("txtId").value = foundRec.empId;    
                     document.getElementById("txtName").value = foundRec.empName;    
                     document.getElementById("txtAddress").value = foundRec.empAddress;    
-                    document.getElementById("txtSalary").value = foundRec.empSalary;    
+                    document.getElementById("txtSalary").value = foundRec.empSalary;
+                    const table = document.querySelector("#tblRecords");
+                for(const emp of instance.getAllEmployees()){
+                    let row = createRow(emp);
+                    table.appendChild(row);
+                }    
                 }catch(ex){
                     alert(ex);
                 }    
+            }
+
+            function onSaveChanges() {
+                const id = parseInt(document.getElementById("txtId").value);
+                const name = document.getElementById("txtName").value;
+                const address = document.getElementById("txtAddress").value;
+                const salary = parseFloat(document.getElementById("txtSalary").value);
+
+                const emp = new Employee(id, name, address, salary);
+                try {
+                    instance.updateEmployee(emp);
+                    populate();
+                } catch (error) {
+                    alert(error)
+                }
             }
         </script>
 </head>

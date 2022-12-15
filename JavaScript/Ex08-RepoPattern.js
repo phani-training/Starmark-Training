@@ -25,6 +25,18 @@ class Employee{
           throw `Employee by ID ${id} not found`;
       }
 
+      updateEmployee(emp){
+          for(const empRec of this.records){
+              if(emp.empId == empRec.empId){
+                 empRec.empAddress = emp.empAddress; 
+                 empRec.empSalary = emp.empSalary; 
+                 empRec.empName = emp.empName;
+                 return;//exit the function 
+              }
+          }
+          throw "Employee not found to update"
+      }
+
   }
 
   /////////////////////Testing part//////////////////
