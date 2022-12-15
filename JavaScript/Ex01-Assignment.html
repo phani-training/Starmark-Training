@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./Ex06-CrudOperations.js"></script>
+    <title>Document</title>
+    <script>
+        const books = [];
+        function populate(){
+            let ol = document.getElementById("lstFav");  
+            ol.innerHTML = "";
+            for (let i = 0; i < myBooks.length; i++) {
+                const value = `<li>${myBooks[i]} 
+                            <a href="#" onclick="onDelete(${i})">X</a>
+                            <a href="#" onclick="onUpdate(${i})">Edit</a>                            
+                            </li>`
+                ol.innerHTML += value;
+            }
+        }
+        function onDelete(id){
+            deleteItem(id);
+            populate();
+        }
+
+        function onUpdate(id){
+            const name = prompt("Enter the new BookName");
+            updateItem(id, name);
+            populate();
+        }
+        function onClick(){
+            //get the element of the ol.
+            let ol = document.getElementById("lstFav");  
+            ol.innerHTML = "";
+            //get the value of the book entered in the textbox. 
+            const bookName = document.getElementById("txtFav").value;
+            //add the value to the array that is created above. 
+            //books.push(bookName);
+            addItem(bookName)
+            //iterate thru the array and append the ol with the li
+            for (const item of getAll()) {
+                const index = books.indexOf(item);
+                const value = `<li>${item} 
+                    <a href="#" onclick="deleteItem(${index})">X</a></li>`
+                ol.innerHTML += value
+            }
+        }
+
+        function onClickv2(){
+            const bookName = document.getElementById("txtFav").value;
+            addItem(bookName)
+            populate();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>List of my Fav Books</h2>
+        <input type="text"  id="txtFav">
+        <button onclick="onClickv2()">Add New Book</button>
+        <p>
+            <ol id="lstFav"></ol>
+        </p>
+    </div>
+
+</body>
+</html>

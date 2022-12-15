@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./Ex06-CrudOperations.js"></script>
+</head>
+<body>
+    <div>
+        <input id="txtbook" placeholder="Enter the Fav Book"/>
+        <button onclick="onAddItem()">+</button>
+        <button>X</button>
+        <button>Edit</button>
+        <p id="pDisplay">
+            <ol id="list"/>
+        </p>
+    </div>
+    <script>
+        const populateWithoutOl = function(){
+            let p = document.getElementById("pDisplay");
+            p.innerHTML ='<ol>'
+            const data = getAll();
+            for(let i = 0; i < data.length; i++){
+                const line = `<li type="i">${data[i]}
+                    <a href="#" onclick="deleteItem(${i})">X</a>
+                    <a href="#" onclick="onEdit(${i})">Edit</a>
+                    </li>`
+                p.innerHTML += line;
+            }
+            p.innerHTML += "</ol>"    
+        }
+        const onDelete = function(id){
+            deleteItem(id);
+            populate();
+        }
+
+        const onEdit = function(id){
+            const newValue = prompt("Enter the New Name for the Book");
+            updateItem(id, newValue);
+            populate();
+        }
+        
+        const populate = function(){
+            let ol = document.getElementById("list");
+            ol.innerHTML = "";
+            const data = getAll();
+            for(let i = 0; i < data.length; i++){
+                const line = `<li type="i">${data[i]}
+                    <a href="#" onclick="onDelete(${i})">X</a>
+                    <a href="#" onclick="onEdit(${i})">Edit</a>
+                    </li>`
+                ol.innerHTML += line;
+            }
+        }
+        const onAddItem = function(){
+            const name = document.getElementById("txtbook").value;
+            addItem(name);
+            alert("Book added Successfully")
+            populate();
+            //populateWithoutOl();
+        }
+        //Call the addItem 4 times with different values..
+        addItem("2 States")
+        addItem("The Suitable Boy")
+        addItem("Santanic Verses")
+        addItem("The God Father")
+        document.getElementById("pDisplay").innerText = myBooks;
+    </script>
+</body>
+</html>
