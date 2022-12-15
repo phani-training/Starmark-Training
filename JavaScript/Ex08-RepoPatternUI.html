@@ -19,6 +19,9 @@
             }
             function populate(){
                 const table = document.querySelector("#tblRecords");
+                const firstRow = document.querySelector("#theading");
+                table.innerHTML = "";
+                table.appendChild(firstRow);
                 for(const emp of data){
                     let row = createRow(emp);
                     table.appendChild(row);
@@ -36,11 +39,6 @@
                     document.getElementById("txtName").value = foundRec.empName;    
                     document.getElementById("txtAddress").value = foundRec.empAddress;    
                     document.getElementById("txtSalary").value = foundRec.empSalary;
-                    const table = document.querySelector("#tblRecords");
-                for(const emp of instance.getAllEmployees()){
-                    let row = createRow(emp);
-                    table.appendChild(row);
-                }    
                 }catch(ex){
                     alert(ex);
                 }    
@@ -74,7 +72,7 @@
         <h2>List of Employees</h2>
         <hr>
         <table id="tblRecords" border="1">
-            <tr>
+            <tr id="theading">
                 <th>Employee ID</th>
                 <th>Employee Name</th>
                 <th>Employee Address</th>
