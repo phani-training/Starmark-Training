@@ -25,10 +25,20 @@
                     table.appendChild(row);
                 }
             })
+            //This function will be called when the user clicks the Edit link in the Nav Section. 
+            function onEdit() {
+                const id = prompt("Enter the Id of the Employee to Edit");
+
+            }
         </script>
 </head>
 <body>
     <h1>Employee Monitoring System</h1>
+    <nav>
+        <a href="#" onclick="onEdit()">Edit Record</a>
+        <a href="#" onclick="onDelete()">Delete Record</a>
+        <a href="#" onclick="onAdd()">Add Record</a>
+    </nav>
     <hr>
     <div>
         <h2>List of Employees</h2>
