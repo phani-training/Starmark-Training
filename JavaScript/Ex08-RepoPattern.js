@@ -18,8 +18,8 @@ class Employee{
       getAllEmployees = () => this.records;
 
       getEmployee(id){
-          for(const emp of this.data){
-              if(emp.empID == id)
+          for(const emp of this.records){
+              if(emp.empId == id)
                 return emp;
           }
           throw `Employee by ID ${id} not found`;

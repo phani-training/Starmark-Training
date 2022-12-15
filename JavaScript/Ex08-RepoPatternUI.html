@@ -28,7 +28,15 @@
             //This function will be called when the user clicks the Edit link in the Nav Section. 
             function onEdit() {
                 const id = prompt("Enter the Id of the Employee to Edit");
-
+                try{
+                    const foundRec = instance.getEmployee(id)
+                    document.getElementById("txtId").value = foundRec.empId;    
+                    document.getElementById("txtName").value = foundRec.empName;    
+                    document.getElementById("txtAddress").value = foundRec.empAddress;    
+                    document.getElementById("txtSalary").value = foundRec.empSalary;    
+                }catch(ex){
+                    alert(ex);
+                }    
             }
         </script>
 </head>
@@ -52,7 +60,28 @@
             </tr>
         </table>
     </div>
-    <div></div>
+    <div>
+        <h2>Details of the Employee</h2>
+        <p>
+            Employee ID:
+            <input id="txtId" readonly type="number">
+        </p>
+        <p>
+            Employee Name:
+            <input type="text" id="txtName">
+        </p>
+        <p>
+            Employee Address:
+            <input type="text" id="txtAddress">
+        </p>
+        <p>
+            Employee Salary:
+            <input type="text" id="txtSalary">
+        </p>
+        <p>
+            <input type="button" value="Save Changes" onclick="onSaveChanges()">
+        </p>
+    </div>
     <div></div>
 </body>
 </html>
