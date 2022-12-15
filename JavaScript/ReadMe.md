@@ -55,6 +55,40 @@ Example is shared as Ex01-Variables.js.
     - filter: Gets a subset of the elements based on criteria. 
     - find: Gets the first matching record based on the criteria.
     - indexOf : Gets the Index of the element passed as arg. 
+    - FindIndex: Gets the index of the Element based on a criteria.
+
+## Classes:
+1. Composite datatypes grouped into one unit is called as object
+2. Objects in JS can be created 2 ways: Singleton objects or Function based objects.
+3. Singleton objects are created using {} operator. They are set with properties. Example is shared.
+4. From ES6, we have a keyword called class and constructor to create classes and objects.
+5. Objects of the class are created using new keyword. This is called as Instantiation. 
+6. With new operator, U can create multiple objects of the class. 
+7. The class represents the schema of the object. It defines what the object will hold and can perform as operations. 
+8. A Class can contain fields, methods, properties. 
+9. Example shared ias Ex07-ObjectBasics.js
+
+## Inheritance:
+- Inheritance is a feature of OOP where U can extend the functionalities of one class into an other. It is based on the Principle of OOP called as Open-Closed Principle. A Class is closed for modification but open for extension. 
+- New syntax of ES6 where we can create class like an Expression.
+- Methods of the base class can be reimplemented in the derived class with the following rules: U cannot modify the parameters of the method. It should have the same method signature in the derived class.
+- To refer the base class, u can use keyword called super(). super is the way to refer the immediate base class. Earlier versions of JS used base or prototype to refer the immediate base class. 
+- Dont use Lambda Methods for overriding the methods as they are scoped only to the class it is created. So no overriding occurs. However, U could use the class methods to achieve the method overriding feature. 
+
+## Maps Collection
+ 1. Maps are the way to store data in the form of key and value. Key is unique to the collection. 
+ 2. Map has functions like:
+    - get => to get the value associated with the key
+    - set => to add the key and value pair to collection. If the key already exists, it does not add to the collection
+    - has => used to check if the key exists in the Map.
+
+    
+    - push : Used to add a new item to the bottom of the Array. 
+    - splice: Used to add, remove and replace an item in the Array.
+    - length: gets the no of elements in the array dynamically. 
+    - filter: Gets a subset of the elements based on criteria. 
+    - find: Gets the first matching record based on the criteria.
+    - indexOf : Gets the Index of the element passed as arg. 
     - FindIndex: Gets the index of the Element based on a criteria.   
 
     
