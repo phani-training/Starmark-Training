@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Using Local Storage</title>
+    <script>
+        function onSave() {
+            if(!localStorage){
+                alert("Please upgrade UR Browser with HTML5 features!!");
+                return;
+            }
+            const value = document.getElementById("txtData").value;
+            localStorage.setItem("someName", value);
+        }
+
+        function onRetrieveData() {
+            if(localStorage.getItem("someName") == null){
+                alert("No data is set!!!");
+                return;
+            }
+            document.getElementById("pDisplay").innerText = localStorage.getItem("someName");    
+        }
+
+        function onSaveChanges(){
+            const emp = {};
+            emp.empId = document.getElementById("txtId").value;
+            emp.empName = document.getElementById("txtName").value;
+            const jsonData = JSON.stringify(emp);
+            localStorage.setItem("empRecord", jsonData);
+        }
+    </script>
+</head>
+<body>
+    <h1>Local Storage in HTML5</h1>
+    <hr>
+    <div>
+        <p>
+            Enter the Sample Text to Store:
+            <input type="text" id="txtData"/>
+            <button onclick="onSave()">Save</button>
+        </p>
+        <div>
+            <button onclick="onRetrieveData()">Click Here to view the Saved Data</button>
+            <p id="pDisplay"></p>
+        </div>
+    </div>
+
+  
+</body>
+</html>
