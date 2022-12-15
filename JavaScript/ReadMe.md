@@ -82,13 +82,6 @@ Example is shared as Ex01-Variables.js.
     - set => to add the key and value pair to collection. If the key already exists, it does not add to the collection
     - has => used to check if the key exists in the Map.
 
-    
-    - push : Used to add a new item to the bottom of the Array. 
-    - splice: Used to add, remove and replace an item in the Array.
-    - length: gets the no of elements in the array dynamically. 
-    - filter: Gets a subset of the elements based on criteria. 
-    - find: Gets the first matching record based on the criteria.
-    - indexOf : Gets the Index of the element passed as arg. 
-    - FindIndex: Gets the index of the Element based on a criteria.   
+       
 
     
