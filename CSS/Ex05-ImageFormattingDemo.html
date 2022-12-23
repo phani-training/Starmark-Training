@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <style>
+    .polaroid{
+        width: 80%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 lightblue;
+        margin-bottom: 25px;
+    }
+
+    .container{
+        padding: 10px 25px;
+        text-align: center 
+    }
+    </style>
+</head>
+<body>
+        <h1>Image formatting in CSS</h1>
+        <nav>
+            <ul>
+                <li><a href="./Ex01-CSSBasics.html">Basics</a></li>
+                <li><a href="./Ex02-InteralCSSDemo.html">Internal CSS</a></li>
+                <li><a href="./Ex03-ExternalCSSDemo.html">External CSS</a></li>
+                <li><a href="./Ex04-TextFormatingDemo.html">Text Formats</a></li>
+                <li><a href="./Ex05-ImageFormattingDemo.html">Image Formatting</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <div>
+            <img id="card" src="../Images/Flower.jfif"/>
+        </div>
+        <div>
+            <img id="sample" src="../Images/park.jfif" />
+        </div>
+        <div class="polaroid">
+            <img src="../Images/park.jfif"/>
+            <div class="container">
+                <p>Cubbon Park</p>
+            </div>
+        </div>
+        <div class="polaroid">
+            <img src="../Images/Flower.jfif"/>
+            <div class="container">
+                <p>Lilly Flower</p>
+            </div>
+        </div>
+        <div>
+            <p style="text-align: center">Image Reflection</p>
+            <img src="../Images/Flower.jfif" style="-webkit-box-reflect: right"  alt="">
+        </div>
+</body>
+</html>

@@ -82,6 +82,33 @@ Example is shared as Ex01-Variables.js.
     - set => to add the key and value pair to collection. If the key already exists, it does not add to the collection
     - has => used to check if the key exists in the Map.
 
-       
+## ES 6 Features
+#### var and let
+- let keyword and const are the new ways of creating data in JS.
+- const is used for refering data that does not modify over the course of time. 
+- let allows to create variables that are scope based. 
+- Earlier, we used another way called as var. 
+- var is function based whereas let is scope based. There are only 2 scopes in var: one is global and another is function based.
+- var adds to the global scope but let does not.  
+- var gets hoisted itself to the upper scope which let does not. 
+- var allows redeclaration within the same scope which is not allowed in let. 
 
+#### Default Parameters:
+- Parameters is what U define in the function. Arguements is what U pass to the function while calling it. 
+```
+function sampleFunc(message = "Good Morning") {
+    console.log(message);
+}
+```
+
+#### Rest Operator
+- Used to set variable no of arguements.
+- Rest parameter is created using ... operator. 
+- U can have normal parameters in UR function. The Rest parameter should be the last of the parameter list. 
+- The Rest parameter is always an array. 
+
+#### Spread operator
+-Rest operator is used to extract the remaining args of a function whereas the spread operator is to extract all the values of a collection.
+-The spread operator unpacks elements of iterable objects like Arrays, Maps and Set. It is the opposite of rest parameter. 
+-Spread operator is used to clone, append, merge collection objects 
     

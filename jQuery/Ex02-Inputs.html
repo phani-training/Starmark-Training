@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/grid.css">
+    <script src="jquerylib.min.js"></script>
+    <script>
+        $().ready(function(){
+            $("div:first").slideUp(2000);
+            $("a").click(function(){
+                $("div:first").slideDown(2000);
+            });
+            $("div:last").fadeToggle(2000);
+            $("button").click(function(event){
+                event.preventDefault();
+                const obj = {};
+                obj.name = $("#txtName").val();
+                obj.email = $("#txtEmail").val();
+                obj.salary = $("#txtSalary").val();
+                $("div:eq(1)").text(JSON.stringify(obj));
+                $("div:eq(1)").fadeToggle(2000);
+            })
+        });
+    </script>
+</head>
+<body>
+    <a href="#">User Registration</a>
+    <div class="col-5">
+        <h1>User registration Form</h1>
+        <hr>
+        <form>
+            <p>
+                Enter the Name: <input required type="text" id="txtName">
+            </p>
+            <p>
+                Enter the Email Address: <input type="email" id="txtEmail">
+            </p>
+            <p>
+                Enter the Salary: <input type="number" min="20000" max="100000" id="txtSalary">
+            </p>
+            <p>
+                <button type="submit">Display Details</button>
+            </p>
+        </form>
+    </div>
+    <div>
+
+    </div>
+</body>
+</html>

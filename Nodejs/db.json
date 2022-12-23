@@ -1,0 +1,70 @@
+{
+  "Books": [
+    {
+      "id": 1,
+      "bookTitle": "Oliver Twist",
+      "price": 450,
+      "author": "Charles Dickens"
+    },
+    {
+      "id": 2,
+      "bookTitle": "The Tale of 2 Cities",
+      "price": 350,
+      "author": "Charles Dickens"
+    },
+    {
+      "id": 3,
+      "bookTitle": "Pride and Predujice",
+      "price": 400,
+      "author": "Jane Austin"
+    },
+    {
+      "id": 4,
+      "bookTitle": "King Lear",
+      "price": 200,
+      "author": "W. Shakespear"
+    },
+    {
+      "id": 5,
+      "bookTitle": "Romeo and Juliet",
+      "price": 200,
+      "author": "W. Shakespear"
+    },
+    {
+      "id": 6,
+      "bookTitle": "The Merchant of Venice",
+      "price": 150,
+      "author": "W. Shakespear"
+    },
+    {
+      "id": 7,
+      "bookTitle": "The Faults in our Stars",
+      "price": 120,
+      "author": "John Green"
+    },
+    {
+      "id": 8,
+      "bookTitle": "Julius Ceaser",
+      "price": 100,
+      "author": "W. Shakespear"
+    },
+    {
+      "id": 9,
+      "bookTitle": "It Starts with Us!",
+      "price": 500,
+      "author": "Collin Hoover"
+    },
+    {
+      "id": 10,
+      "bookTitle": "The Compound Effect",
+      "price": 560,
+      "author": "Darren Hardy"
+    },
+    {
+      "id": "11",
+      "bookTitle": "The Atomic Habits",
+      "price": "560",
+      "author": "James Clar"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time bound Methods   </title>
+    <script>
+        function displayTime(){
+            const currentDt = new Date();
+            const hr = currentDt.getHours();
+            const min = currentDt.getMinutes();
+            const sec = currentDt.getSeconds();
+            const content = `<b>${hr}:${min}:${sec}</b>`;
+            document.getElementById("lblTime").innerHTML = content;
+        }
+        
+        function onSetIntervalFunc() {
+            setInterval(displayTime,1000);
+        }
+
+        function onSetTimeoutExample(){
+            setTimeout(() => {
+                alert("Time for Lunch Break!!!!")
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <h1>Time based Methods</h1>
+    <hr>
+    <ul>
+        <li>setTimeout: Used to call a function after a specified period of time mentioned in milli seconds</li>
+        <li>setInterval: Used to call the same function everytime after the span of the interval specified in milli seconds</li>
+    </ul>
+    <p>
+        <label id="lblTime"></label>
+    </p>
+    <button onclick="onSetTimeoutExample()">setTimeout</button>
+    <button onclick="onSetIntervalFunc()">setInterval</button>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     .static{
+         position: static;
+         border: 2px solid blue;
+         padding: 50px;
+     }
+     .fixed{
+         bottom: 20px;
+         position: fixed;
+         border: 2px solid green;
+         text-align: center;
+         width: 97%;
+     }
+     .relative{
+         left: 150px;
+         position: relative;
+         border : 2px solid yellow;
+     }
+     .absolute{
+         position: absolute;
+         border: 2px solid indianred;
+         top:80%;
+         width: 200px;
+         height: 100px;
+     }
+     .sticky{
+         position: -webkit-sticky;
+         position : sticky;
+         border: 2px solid brown;
+         padding: 50px;
+         top:0;
+     }
+    </style>
+</head>
+<body>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="relative">
+        <p>Relative positioned elements place themselves from the actual position. They are simply adjusted away from their normal flow. </p>
+        <div class="absolute">
+            <p>Content will be placed based on the Parent element. It is more like Inset</p>
+        </div>   
+    </div>    
+    <div class="sticky">
+        <p>Content will be fixed while U scroll and behaves like relative when it is in the View Port. </p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>
+    <div class="static">
+        <p>Statically positioned elements</p>
+    </div>      
+    <div class="fixed">
+        <p>Fixed Positioned Footer</p>
+    </div>
+</body>
+</html>

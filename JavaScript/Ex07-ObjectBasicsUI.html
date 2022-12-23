@@ -1,24 +1,15 @@
 <script src="./Ex07-ObjectBasics.js"></script>
 <script>
     window.addEventListener("load", function(){
-        document.getElementById("empid").value = empObj.empId;
-        document.getElementById("empname").value = empObj.empName;
-        document.getElementById("empaddress").value = empObj.empAddress;
-        document.getElementById("empsalary").value = empObj.empSalary;
-
         document.getElementById("id").value = obj.id;
         document.getElementById("name").value = obj.name;
         document.getElementById("address").value = obj.address;
         document.getElementById("salary").value = obj.salary;
-        
     })
-    //load is an event triggered when the document is loaded into the browser. 
 </script>
 <h1>Object based Programming using JS</h1>
 <hr>
 <div>
-    <h1>Using Singleton object</h1>
-    <hr>
     <p><input type="text" id="id" placeholder="ID"></p>
     <p><input type="text" id="name" placeholder="Name"></p>
     <p><input type="text" id="address" placeholder="Address"></p>
@@ -28,16 +19,3 @@
         <button>Clear</button>
     </p>
 </div>
-
-<div>
-    <h1>Using Employee object</h1>
-    <hr>
-    <p><input type="text" id="empid" placeholder="ID"></p>
-    <p><input type="text" id="empname" placeholder="Name"></p>
-    <p><input type="text" id="empaddress" placeholder="Address"></p>
-    <p><input type="text" id="empsalary" placeholder="Salary"></p>
-    <p>
-        <button>Save changes</button>
-        <button>Clear</button>
-    </p>
-    </div>

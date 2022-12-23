@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquerylib.min.js"></script>
+    <script src="FoodApp.js"></script>
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>Food App</title>
+    <script>
+        const cart = new Cart();
+        let quantity = 1;
+        function loadItems(){
+            $.each(FoodItems, (i , v)=>{
+                let item = `<div class="card"><h3>${v.name}</h3><hr>`;
+                item += `<p><img src="${v.image}" class="img"/>`
+                item += `<p>Cost: ${v.price}</p>`    
+                item += `<p>Quantity: <select class="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select></p>`
+
+                item += `<p><button class="edit" info ="${i}">Add To Cart</button></p></div>`;
+                $(".items").append(item);            
+            })
+        }
+        function addItemToCart(index, quantity){
+            const item = FoodItems[index];
+            const val = new Item(item.id, item.name, item.price, quantity);
+            cart.addToCart(val);
+            alert("Item added to cart: " + JSON.stringify(val))
+        }
+        function init(){
+            $("div").hide();
+            $("nav > a:first").click(function(){
+                $("div.items").show(2000)
+                loadItems();
+                $(".edit").click((function(){
+                    const val = $(this).parents("div.card").find(".select").val();
+                   const index = $(this).attr("info");
+                   addItemToCart(index, val);
+                }))
+            });
+            //$(".card").find(".edit").click(addItemToCart);
+            $("nav > a:eq(1)").click(function(){
+                $("div.items").hide();
+                $("#finalCart").show(2000)
+                $("#finalCart").find("p").append("Rs." + cart.getTotalBill())
+                const table = $("#finalCart").find("table");
+                table.find("tr:gt(0)").remove();
+                for(const item of cart.items){
+                    const row = createRow(item);
+                    table.append(row)
+                }
+            });
+            $("nav > a:last").click(function(){
+                $("div").hide();
+                $("#About").show(2000);
+                locateMe();
+            })
+            $("#finalCart").find("button").click(function(){
+                const dt = new Date();
+                dt.setMinutes(dt.getMinutes() + 30);
+                const msg = `The Delivery will be ready by 30 Min. U can come to our location by ${getTime(dt)} today`;
+                $("#finalCart > p:last").find("span").text(msg)    
+            })
+
+
+        }
+        function locateMe(){
+            navigator.geolocation.getCurrentPosition(function(position){
+                let latlon = position.coords.latitude + "," + position.coords.longitude;
+    
+      let img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyCwlu-ILdrow5CmxI46Ioa_K0f76RJ7gqM";    
+      document.getElementById("displayLoc").innerHTML = "<img src='"+img_url+"'>";
+
+            });
+        }
+        function createRow(item){
+            let row = `<tr><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}</td><td>${item.getAmount()}</td></tr>`
+            return row;
+            
+        }
+
+        function getTime(dt){
+            return `${dt.getHours()}:${dt.getMinutes()}`;
+        }
+        $().ready(init);
+    </script>
+</head>
+<body>
+  <h1>Food Ordering App</h1>
+  <hr>
+  <nav>
+      <a href="#">Display Items</a>
+      <a href="#">Go to Cart</a>
+      <a href="#">About Us!</a>
+  </nav>
+  <div class="items">
+     <h2>List of Items with Us</h2>
+     <hr>      
+  </div>
+  <div id="finalCart">
+      <table border="1">
+        <tr>
+            <th>Food Item</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>            
+        </tr>    
+      </table>
+      <p>
+        The Total Bill: 
+      </p>
+      <p>
+          <button>Place the Order.</button>
+      </p>
+      <p>
+          <span style="color:indianred"></span>
+      </p>
+  </div>
+  <div id="About">
+      <h2>We are available online, Order Now!!!</h2>
+      <hr>
+      <p>
+          <h2>Our Location:</h2>
+          <p>
+              <span>
+                    32, Gandhi Bazaar, 
+                    Near Gandhi Bazaar Circle, Basavanagudi, Bangalore, Bengaluru, Karnataka 560004
+              </span>
+          </p>
+          <p id="displayLoc">
+              
+          </p>
+      </p>
+  </div>  
+</body>
+</html>

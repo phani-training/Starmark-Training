@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <style> 
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); 
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/grid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="mainStyle.css" />
+    <script src="jquerylib.min.js"></script>
+    <script src="RepoCom.js"></script>
+    <script>
+        const expRepo = new ExpenseManager();
+        let foundExpense = null;
+        let finder = 0;
+        function createData(){
+            expRepo.addNewExpense(new Expense("Food at cafe", 100, new Date(2022, 11, 13)))
+            expRepo.addNewExpense(new Expense("Brunch at cafe", 120, new Date(2022, 10, 23)))
+            expRepo.addNewExpense(new Expense("Coffee at cafe", 10, new Date(2022, 11, 11)))
+            expRepo.addNewExpense(new Expense("Tea at hotel", 10, new Date(2022, 11, 12)))
+        }
+        function dateString(date){
+            return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        }
+        function displayRecord(id){
+            $(".container").children("div").hide();
+            $(".container").children("div:eq(1)").show(0)
+            foundExpense = expRepo.getExpenseById(id);
+            $("#txtId").val(foundExpense.id);
+            $("#txtDetail").val(foundExpense.detail);
+            $("#txtAmount").val(foundExpense.amount);
+            $("#txtDate").val(foundExpense.date);
+            
+        }
+        function populateData(data){
+            $("table").find("tr:gt(0)").remove();//Remove all the rows expect the first row(heading). 
+            $.each(data, (index, item)=>{
+              const row = `<tr>
+                    <td>${item.id}</td>
+                    <td>${item.detail}</td>
+                    <td>${item.amount}</td>
+                    <td>${dateString(item.date)}</td>
+                    <td><a class="edit" href="#" onclick="displayRecord(${item.id})"/>Edit</td>
+                     `;
+               $("table").append(row);        
+            })
+        }
+        function onDisplayTable() {
+            finder =0;
+            $(".container").children("div").hide();
+            $(".container").children("div:first").show(2000);
+            if(finder == 1){
+                $(".container > div:first > p").show();
+            }else
+                $(".container > div:first > p").hide();
+            const data = expRepo.getAllExpenses();
+            populateData(data);
+        }
+        function onDisplayNewExpense() {
+            $(".container").children("div").hide();
+            $(".container > div:last").show(2000);
+        }
+        function onFindExpenseByDate() {
+            finder = 1;
+            $(".container").children("div").hide();
+            //ask the user to enter the date:
+            //call the API to get expenses on the given date
+            //populate it on the same table. 
+            $(".container > div:first").show(2000);
+            if(finder == 1){
+                $(".container > div:first > p").show();
+            }else
+                $(".container > div:first > p").hide();
+        }
+
+        function onFindExpenseByDetail() {
+            const detail = prompt("Enter the detail or part of the Detail to search");
+            const data = expRepo.findExpenses(detail);
+            $(".container > div:first").show(2000);
+            populateData(data);
+            finder =0;
+            if(finder == 1){
+                $(".container > div:first > p").show();
+            }else
+                $(".container > div:first > p").hide();
+        }
+
+        function clearText(){
+            $(".container").children("div:eq(1)").find("input").val("");
+            $(".container").children("div:eq(2)").find("input").val("");
+        }
+        function onSaveChanges() {
+            //get the values...
+            foundExpense.detail = $("#txtDetail").val();
+            foundExpense.amount = $("#txtAmount").val();
+            foundExpense.date = new Date($("#txtDate").val());
+            //create the Expense object with values. 
+            const id = foundExpense.id;
+            //call the modifyExpense function thru the expRepo obj.
+            expRepo.modifyExpense(id, foundExpense);
+            alert("Expense modified successfully");
+            
+            $(".container").find("div:eq(1)").hide(2000);
+        }
+        function onNewExpense(){
+            const detail = $("#txtNewDetail").val();
+            const amount = $("#txtNewAmount").val();
+            const date = new Date($("#txtNewDate").val());
+            const obj = new Expense(detail, amount, date);
+            expRepo.addNewExpense(obj);
+            alert("Expense Added successfully");
+            clearText();
+            $(".container > div:eq(2)").hide();
+        }
+
+        function onSearchByDate(){
+            const date = new Date($("#txtSearchByDate").val());
+            const data = expRepo.findExpensesByDate(date);
+            if(data.length == 0)
+                alert("No Records found!!!")
+            populateData(data);
+        }
+
+        function init(){
+            createData();
+            $("div.container").children("div").hide();
+            $("a:first").click(onDisplayTable)
+            $("a:eq(1)").click(onDisplayNewExpense)
+            $("ul>li:eq(2)>a").click(onFindExpenseByDate);
+            $("ul>li:eq(3)>a").click(onFindExpenseByDetail);
+            $("#btnSave").click(onSaveChanges);
+            $("#btnAdd").click(onNewExpense);
+            $("button:first").click(onSearchByDate)
+        }
+        $().ready(init)
+    </script>
+</head>
+<body>
+    <h1>Expense Manager Software</h1>
+    <nav style="text-align: center">
+        <ul>
+            <li><a href="#">View All Expenses</a></li>
+            <li><a href="#">Add New Expense</a></li>
+            <li><a href="#">Find Expense By Date</a></li>
+            <li><a href="#">Find Expense By Detail</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <div class="container">
+        <div>
+            <p>
+                <input type="date" id="txtSearchByDate" placeholder="By Date"/>
+                <button>Search</button>
+            </p>
+            <h2>Table of Records</h2>
+            <hr>
+            <table border="1">
+                <tr>
+                    <th>ExpenseID</th>
+                    <th>Expense Detail</th>
+                    <th>Expense Amount</th>
+                    <th>Date of Expense</th>
+                    <th>Options</th>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h2>Details of the Expense</h2>
+            <div>
+                <p>Expense ID: <input disabled id="txtId"/> </p>
+                <p>Expense Detail: <input id="txtDetail"/> </p>
+                <p>Expense Amount: <input id="txtAmount"/> </p>
+                <p>Expense Date: <input id="txtDate"/> </p>
+                <p>
+                    <button id="btnSave">Save Changes</button>
+                    <button onclick="clearText()">Cancel</button>
+                </p>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <h2>Add New Expense</h2>
+            <hr>
+            <div>
+                <p>Expense Detail: <input id="txtNewDetail"/> </p>
+                <p>Expense Amount: <input id="txtNewAmount"/> </p>
+                <p>Expense Date: <input id="txtNewDate" type="date"/> </p>
+                <p>
+                    <button id="btnAdd">Add Expense</button>
+                    <button onclick="clearText()">Cancel</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DateTime Functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        function createDate(){
+            year = parseInt(prompt("Enter the Year"));
+            month = parseInt(prompt("Enter the month form 0 to 11"));
+            date = parseInt(prompt("Enter the Date of the Month"));
+            return new Date(year, month, date);
+        }
+
+        function displayDate(date){
+            //It should create a div, and display the Year, Month, Date, Day, Hour, Min and Sec. 
+            const div = document.createElement("div");
+            const year = date.getFullYear();
+            const month = months[date.getMonth()];
+            const dt = date.getDate();
+            const hour = date.getHours();
+            const min = date.getMinutes();
+            const sec = date.getSeconds();
+            div.innerHTML = `The Year: ${year}<br/>
+            The Month: ${month}<br/>
+            The Date: ${dt}<br/>
+            The Hour: ${hour}<br/>
+            The Minutes: ${min}<br/>
+            The Seconds: ${sec}<br/>
+            `;
+            document.body.appendChild(div);
+        }
+
+        function showDate() {
+            //alert(new Date());//Displays the System date.
+            //alert(new Date(1977, 11, 01));//Displays the specific date->Year, Month(0-11), Day
+            //alert(new Date("12/12/2007"));//Date presented as string.
+            //const selectedDate = createDate();
+            //document.getElementById("pDisplay").innerText = selectedDate; 
+            //displayDate(new Date());
+            const selectedDate= new Date(document.getElementById("txtDate").value);
+            displayDate(selectedDate);
+        }
+    </script>
+</head>
+<body>
+        <h1>Date and Time based Functions</h1>
+        <hr>
+        <div>
+            Enter the Date: <input type="date" id="txtDate"/>
+            <button onclick="showDate()">Show Date Time</button>   
+            <p id="pDisplay"></p>
+        </div>
+        <div>
+            <h2>Points to Remember</h2>
+            <hr>
+            <ul>
+                <li>The Date is an object in JS to represent the date and time</li>
+                <li>It has functions to get the Year, Month, Day, Hour and Seconds</li>
+                <li></li>
+                <li></li>
+            </ul>      
+        </div>
+</body>
+</html>

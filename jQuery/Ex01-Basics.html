@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        div{
+            background-color: lightgreen;
+            border: 2px solid darkgreen;
+            width: 250px;
+            height: 200px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+    <script src="jquerylib.min.js"></script>
+</head>
+<body>
+    <script>
+        // jQuery(document).ready(function(){
+        //     alert("I am ready!!!!")
+        // });
+        const func = function(){
+            //event handler for the click event on the div 
+            $("div").click(function(){
+                $(this).css("background-color", "red");
+            }).mouseover(function(){
+                $(this).css("font-size", "40pt");
+            }).mouseleave(function(){
+                $(this).css("font-size", "18pt");
+            })
+            
+            $("div").hide(1500); //Hides all Divs of the doc...
+            console.log("First Example of jQuery")
+            //When any a Tag is clicked....
+            $("a").click(function(){
+                $("div").show(1500);//Display all the divs of the document. 
+            })
+        }
+        $().ready(func);
+    </script>
+    <nav>
+        <a href="#">Display All</a>
+    </nav>
+    <div>
+        <p>Div 1</p>
+    </div>
+    <div>
+        <p>Div 2</p>
+    </div>
+    <div>
+        <p>Div 3</p>
+    </div>
+</body>
+</html>

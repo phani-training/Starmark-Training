@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquerylib.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            padding: 50px;
+            margin: 25px;
+            font-size: 40pt;
+            color: chartreuse;
+            background-color: azure;
+            text-align: center
+        }
+    </style>
+    <script>
+        const url = "http://localhost:3000/books"
+        function createRow(book){
+            const row = `<tr class="bg-warning text-primary"><td>${book.id}</td>
+                <td>${book.bookTitle}</td>
+                <td>${book.price}</td>
+                <td>${book.author}</td>
+                <td>
+                    <a href="#" class="edit" info="${book.id}">Edit</a>
+                </td></tr>`;
+                return row;
+        }
+        function getAllRecords(){
+            $("table").find("tr:gt(0)").remove();
+            $.get(url, function(data){
+                for(const bk of data){
+                    let row = createRow(bk);
+                    $("table").append(row);
+                }
+                $(".edit").click(function(){
+                    const id = $(this).attr("info");
+                    displayBookById(id);
+                       
+                })
+            })
+        }
+
+        function displayBookById(id){
+            const tempUrl = `${url}/${id}`
+            $.get(tempUrl, (foundBook)=>{
+                $("#txtOldId").val(foundBook.id);    
+                $("#txtOldTitle").val(foundBook.bookTitle);    
+                $("#txtOldAuthor").val(foundBook.author);    
+                $("#txtOldPrice").val(foundBook.price);       
+            })
+            
+        }
+        function addRecord(){
+            const postData = {};
+            postData.id = parseInt($("#txtId").val());
+            postData.bookTitle = $("#txtTitle").val();
+            postData.price =$("#txtPrice").val();
+            postData.author =$("#txtAuthor").val();
+            $.post(url, postData, function(data){
+                const msg = `The book ${data.bookTitle} is added`
+                alert(msg)
+                getAllRecords();
+            })
+        }
+        $().ready(function(){
+            $("a.btn:first").click(getAllRecords)
+            
+            $("#btnAdd").click(addRecord);
+            
+        })
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a href="#" class="btn btn-info m-3 p-4">All Records</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<h1 class="jumbotron">Book store App!</h1>
+    <hr>
+    <div class="container container-fluid text-primary">
+        <div class="row">
+            <div class="col-md-8">
+                <header>
+                    <h2 class="h2">Books with Us!!!</h2>
+                    <hr>
+                </header>
+                <div>
+                    <table class="table table-bordered table-striped table-hover" border="1">
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Cost</th>
+                            <th>Options</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                        <header>
+                                <h2> Edit Book Details</h2>
+                                <hr>
+                            </header>
+                            <div>
+                                <p>
+                                    Enter the ID: <input class="form-control" id="txtOldId" placeholder="ID of the Book" />
+                                </p>
+                                <p>
+                                    Enter the Title: <input class="form-control" id="txtOldTitle" placeholder="Title" />
+                                </p>
+                                <p>
+                                    Enter the Author: <input class="form-control"  id="txtOldAuthor" placeholder="Author" />
+                                </p>
+                                <p>
+                                    Enter the Price: <input class="form-control"  id="txtOldPrice" placeholder="Price" />
+                                </p>
+                                <p>
+                                    <button id="btnUpdate" class="btn btn-primary">Update Book</button>
+                                </p>
+                            </div>
+                </div>                 
+                <div>
+                <header>
+                    <h2> Add New Book</h2>
+                    <hr>
+                </header>
+                <div>
+                    <p>
+                        Enter the ID: <input class="form-control" id="txtId" placeholder="ID of the Book" />
+                    </p>
+                    <p>
+                        Enter the Title: <input class="form-control" id="txtTitle" placeholder="Title" />
+                    </p>
+                    <p>
+                        Enter the Author: <input class="form-control"  id="txtAuthor" placeholder="Author" />
+                    </p>
+                    <p>
+                        Enter the Price: <input class="form-control"  id="txtPrice" placeholder="Price" />
+                    </p>
+                    <p>
+                        <button id="btnAdd" class="btn btn-primary">Add Book</button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

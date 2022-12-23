@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquerylib.min.js"></script>
+    <script>
+        const url = "http://localhost:3000/employees";
+        $(document).ready(function(){
+          $.get(url, function(result){
+             $.each(result, (i, v)=>{
+              $("p").append(`${v.empName} from ${v.empAddress}<br/>`)   
+             }) 
+          });
+
+          $("button:eq(0)").click(function(){
+              const obj = {};
+              obj.id = parseInt(prompt("Enter the ID"));
+              obj.empName = prompt("Enter the Name");
+              obj.empAddress = prompt("Enter the Address");
+              obj.empSalary = parseInt(prompt("Enter the Salary"));
+              $.post(url, obj,function(data){
+                  alert(data)
+                  alert("This was added")
+              })
+          })
+          
+          $("button:eq(1)").click(function(){
+              const obj = {};
+              obj.id = parseInt(prompt("Enter the ID of the Employee to update"));
+              obj.empName = prompt("Enter the Name");
+              obj.empAddress = prompt("Enter the Address");
+              obj.empSalary = parseInt(prompt("Enter the Salary"));
+              const tempUrl = url + "/" + obj.id
+              $.ajax({
+                  "method": "PUT",
+                  "url" : tempUrl,
+                  "data" : obj,
+                  "success": function(result){
+                     alert(JSON.stringify(result));   
+                  }
+              })
+          })
+
+          $("button:eq(2)").click(function(){
+              const obj = {};
+              obj.id = parseInt(prompt("Enter the ID of the Employee to delete"))
+              const tempUrl = url + "/" + obj.id
+              $.ajax({
+                  "method": "DELETE",
+                  "url" : tempUrl,
+                  "success": function(result){
+                     alert(JSON.stringify(result));   
+                  }
+              })
+          })
+        })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+  <p>
+
+  </p>
+  <button>Post Data</button>  
+  <button> Update Data</button>
+  <button> Delete</button>
+</body>
+</html>

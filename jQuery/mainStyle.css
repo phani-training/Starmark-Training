@@ -1,0 +1,44 @@
+body{
+    background-color: lightcyan;
+    color:black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+h1{
+    padding: 50px;
+    background-color: aqua;
+    font-size: 38pt;
+    text-align: center
+}
+
+ul{
+    list-style-type: none;
+}
+li, a{
+    display: inline-block;
+    background-color: blanchedalmond;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none
+}
+a:hover{
+    background-color: brown;
+    color:whitesmoke;
+}
+
+.edit{
+    text-align: center;
+    background-color: transparent;
+}
+.card{
+    vertical-align: top;
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    border: 2px solid green;
+    margin: 5px;
+}
+.img{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    height: 300px;
+}

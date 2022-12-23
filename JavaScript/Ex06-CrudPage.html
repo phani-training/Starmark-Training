@@ -25,7 +25,6 @@
             for(let i = 0; i < data.length; i++){
                 const line = `<li type="i">${data[i]}
                     <a href="#" onclick="deleteItem(${i})">X</a>
-                    <a href="#" onclick="onEdit(${i})">Edit</a>
                     </li>`
                 p.innerHTML += line;
             }
@@ -35,13 +34,6 @@
             deleteItem(id);
             populate();
         }
-
-        const onEdit = function(id){
-            const newValue = prompt("Enter the New Name for the Book");
-            updateItem(id, newValue);
-            populate();
-        }
-        
         const populate = function(){
             let ol = document.getElementById("list");
             ol.innerHTML = "";
@@ -49,7 +41,6 @@
             for(let i = 0; i < data.length; i++){
                 const line = `<li type="i">${data[i]}
                     <a href="#" onclick="onDelete(${i})">X</a>
-                    <a href="#" onclick="onEdit(${i})">Edit</a>
                     </li>`
                 ol.innerHTML += line;
             }

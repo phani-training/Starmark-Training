@@ -1,0 +1,91 @@
+*{
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;   
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li{
+    display: inline-block;
+    background-color: aquamarine;
+    padding: 5px;
+}
+li:hover{
+    background-color:gold;
+    color : brown;
+}
+body{
+    background-color: antiquewhite;
+    color : darkslategray;
+}
+nav{
+    text-align: center;
+    border: 2px solid darkmagenta;
+    padding: 20px;
+}
+
+a:link{
+    color : red;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+
+a:visited{
+    color : yellow;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+a:hover{
+    color : blue;
+    text-decoration: underline;
+}
+a:active{
+    color : hotpink;
+    text-decoration: underline;
+}
+
+div{
+  display: inline-block;
+  width: 45%;  
+  vertical-align: top;
+}
+
+#first{
+   text-indent: 40px;
+   letter-spacing: 3px;
+}
+
+#second{
+    word-spacing: 4px;
+}
+
+#third{
+    line-height: 1.8;    
+    color: darkorange;
+}
+
+#fourth{
+    text-shadow: 2px 2px 5px red;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    text-align: justify
+}
+
+#fifth{
+    writing-mode: vertical-lr;
+    text-shadow: 0 0 3px #FF0000;
+}
+
+#card{
+    border-radius: 50%; /*Rounded Image*/
+    max-width: 100%; /*Takes the whole container*/
+}
+
+#sample{
+    width: 70%;
+    box-shadow:5px 5px;
+    opacity: 50%; /*Makes the image blur*/
+}

@@ -18,13 +18,15 @@
                 return row;
             }
             function populate(){
+                //get the table element....
                 const table = document.querySelector("#tblRecords");
+                //get the heading element....
                 const firstRow = document.querySelector("#theading");
-                table.innerHTML = "";
-                table.appendChild(firstRow);
-                for(const emp of data){
-                    let row = createRow(emp);
-                    table.appendChild(row);
+                table.innerHTML = "";//remove all the elements
+                table.appendChild(firstRow);//add the heading
+                for(const emp of data){//iterate thro the array
+                    let row = createRow(emp);//Create row to the table
+                    table.appendChild(row);//add the row to the table
                 }
             }
             window.addEventListener("load", function(){
