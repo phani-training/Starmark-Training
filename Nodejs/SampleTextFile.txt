@@ -1,0 +1,2 @@
+Sample text to write
+Content will be appended to the next line

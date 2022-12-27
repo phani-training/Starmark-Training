@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <style>
+    *{
+        background-color: lightcoral;
+        color:lemonchiffon;
+        font-size: 24pt;
+        padding: 5px;
+        margin: 5px;
+        font-family: 'Courier New', Courier, monospace
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        const sentence = "the quick brown fox jumps over the lazy dog";
+        const words = sentence.split(" ");
+        function getCode(ch){
+            if(ch == " ") return "-";
+            let code = "";
+            for(const w of words){
+                if(w.includes(ch)){
+                    code += words.indexOf(w);
+                    code += w.indexOf(ch);
+                    return code;
+                }
+            }          
+        }
+        
+        function onClick(){
+            let word = document.getElementById("txtWord").value.toLowerCase();
+            let code = ""
+            document.getElementById("area").innerText = "";
+            for(const ch of word){
+                if(ch == " "){
+                   code = code.substring(0, code.length -1);
+                   code += getCode(ch);
+                }else{
+                    code += getCode(ch);
+                    code += ","
+                }
+            }
+            document.getElementById("area").innerText += code.substring(0, code.length - 1)
+        }
+    </script>
+</head>
+<body>
+    <h1>String Encoder</h1>
+    <hr>
+    <p>
+        Enter the Word:<input type="text" id="txtWord"/>
+        <button onclick="onClick()">Get Code</button>
+    </p>
+    <p id="area">
+
+    </p>
+</body>
+</html>
