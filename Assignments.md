@@ -45,3 +45,9 @@ Single User Application.
 #### Things to have:
 Links, Images, Data in the form of Arrays, Classes, Implementing localStorage etc. 
 CSS should be implemented. 
+
+## Nodejs Assignment:
+1. Create a Web Application in Nodejs that stores the user inputs in the form of CSV file.
+2. The Httpserver should publish a Registration Page that allows Users to enter the input values for the CSV file.
+3. On Submit, the file should be updated with new entry. 
+4. Let there be another Page that reads the contents of the CSV file and displays the data in a Table
