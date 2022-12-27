@@ -1,7 +1,9 @@
 //WebApp.js will handle web requests for the pages we create. 
 const http = require('http');
 const fs = require('fs');
-const httpParse = require('url').parse; 
+const querystring = require('querystring');//for parsing POST method
+const httpParse = require('url').parse; //for parsing GET method...
+
 const dir = __dirname; //const for the current directory of the Application. 
 
 function displayPage(res, url){
@@ -26,8 +28,14 @@ http.createServer((req, res)=>{
             return
         }
     }else if(req.method == "POST"){
+        let postedData = "";
         req.on("data", function(inputs){//data is an event triggered when the page is posted
-            res.write(inputs);
+            postedData += inputs;
+        })
+        req.on("end", function(){
+            let post = querystring.parse(postedData);
+            const msg = `Thanks Mr.${post['txtName']} for registering with Us! UR EMail ${post['txtEmail']} is registered and will be contacted`;
+            res.write(msg);
             res.end();
             return;
         })
@@ -44,7 +52,6 @@ http.createServer((req, res)=>{
             break;
         default:
             errorPage(res);
-            res.end();
             break;
     }
 }).listen(1234);
