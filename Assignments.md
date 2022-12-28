@@ -52,6 +52,6 @@ CSS should be implemented.
 3. On Submit, the file should be updated with new entry. 
 4. Let there be another Page that reads the contents of the CSV file and displays the data in a Table
 
-## Express Assignmnt:
+## Express Assignment:
 1. Develop an E2E Application on a Bookstore using Express Framework that allows to register new books, display all books, find books, delete books into a SQL Server Database. 
 2. The Application should come up with HTML user interface along with jquery support to perform the CRUD operations. 
