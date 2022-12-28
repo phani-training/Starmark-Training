@@ -51,3 +51,7 @@ CSS should be implemented.
 2. The Httpserver should publish a Registration Page that allows Users to enter the input values for the CSV file.
 3. On Submit, the file should be updated with new entry. 
 4. Let there be another Page that reads the contents of the CSV file and displays the data in a Table
+
+## Express Assignmnt:
+1. Develop an E2E Application on a Bookstore using Express Framework that allows to register new books, display all books, find books, delete books into a SQL Server Database. 
+2. The Application should come up with HTML user interface along with jquery support to perform the CRUD operations. 
