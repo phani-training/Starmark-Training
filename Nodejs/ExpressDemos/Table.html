@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $().ready(function(){
+            const url = "/";
+            $("table").find("tr:gt(0)").remove();
+            $.get(url, (data)=>{
+                for(const obj of data){
+                    const row = `<tr><td>${obj.empId}</td><td>${obj.empName}</td><td>${obj.empAddress}</td><td>${obj.empSalary}</td></tr>`
+                    $("table").append(row)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Address</th>
+            <th>Employee Salary</th>
+        </tr>
+    </table>
+</body>
+</html>
