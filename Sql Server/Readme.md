@@ -39,6 +39,7 @@ Points to remember:
 4. IDENTITY is defined for a column to store auto generating numbers starting with seed and an incremental value.
 5. U cannot drop a column that is referenced in another table. In that case, U should drop the relation and then drop the column.
 
+
 # Data Manipulation Language.
 - Insert statement is used to add data to the table. 
 
@@ -54,6 +55,13 @@ Update tblEmployee Set EmpName ='Phani Raj B.N', EmpAddress ='Bengaluru', EmpSal
 
 Update tblEmployee Set DeptId = 2 WHERE EMPID = 1002
 ```
+<<<<<<< HEAD
+
+# Transactional Control Language
+# Data Query Language
+# Data Control Language.
+=======
+>>>>>>> Assignments
 # Transactional Control Language
 # Data Query Language
 # Data Control Language. 
