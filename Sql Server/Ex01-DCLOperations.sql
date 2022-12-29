@@ -18,13 +18,13 @@ Create table tblEmployee
   EmpSalary money NOT NULL 
 )
 
-Insert into tblEmployee values('Phaniraj','Bangalore',56000)
-Insert into tblEmployee values('Ramesh','Mysore',35000)
-Insert into tblEmployee values('Sanjeev','Tumkur',20000)
-Insert into tblEmployee values('Ananth','Hosapete',30000)
-Insert into tblEmployee values('Aravind','Chitradurga',70000)
-Insert into tblEmployee values('Raghunandan','Hubli',55000)
-Insert into tblEmployee values('Ravi kumar','Mangalore',50000)
+Insert into tblEmployee values('Phaniraj','Bangalore',56000, 2)
+Insert into tblEmployee values('Ramesh','Mysore',35000,2)
+Insert into tblEmployee values('Sanjeev','Tumkur',20000, 3)
+Insert into tblEmployee values('Ananth','Hosapete',30000,4)
+Insert into tblEmployee values('Aravind','Chitradurga',70000,2)
+Insert into tblEmployee values('Raghunandan','Hubli',55000, 1)
+Insert into tblEmployee values('Ravi kumar','Mangalore',50000, 1)
 
 
 Create table tblDept
@@ -51,3 +51,21 @@ Insert into tblDept values('IT Help Desk')
 Insert into tblDept values('Management')
 Insert into tblDept values('Utilities')
 
+------------------Update Statement------------------
+-- Update tablename set colName = value.... where colName = value;
+Update tblEmployee Set EmpName ='Phani Raj B.N', EmpAddress ='Bengaluru', EmpSalary = 60000 WHERE EmpId = 1001
+
+Update tblEmployee Set DeptId = 2 WHERE EMPID = 1002
+
+-------------------Delete Statement-------------------------------------
+DELETE FROM TBLEMPLOYEE WHERE EMPID < 2000
+
+-- To delete all the rows, U can use TRUNCATE Statement. It is same as DELETE FROM TBLEMPLOYEE without a WHERE Clause
+
+SELECT * FROM TBLEMPLOYEE
+TRUNCATE TABLE tblDept
+SELECT * FROM TBLEMPLOYEE
+
+DELETE FROM TBLDEPT WHERE DeptId = 3
+
+SELECT COUNT(*) FRom TBLEMPLOYEE

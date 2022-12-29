@@ -55,13 +55,24 @@ Update tblEmployee Set EmpName ='Phani Raj B.N', EmpAddress ='Bengaluru', EmpSal
 
 Update tblEmployee Set DeptId = 2 WHERE EMPID = 1002
 ```
-<<<<<<< HEAD
+
+- Delete Statement is used to remove the rows from a table. 
+    - To delete all the rows, U can use TRUNCATE Statement. It is same as DELETE FROM TBLEMPLOYEE without a WHERE Clause.
+    - If U want to delete a row which is having a relation with other table data, U should remove the constraint or remove the secondary table data before removing the data in the Primary table. 
+
+```
+Delete from tblEmployee where EmpId < 2000
+Delete from tblEmployee where DeptId = (SELECT DeptId From tblDept where DeptId < 4)
+DELETE FROM tblEmployee WHERE EmpAddress = 'Bangalore' AND EmpId >= 1000
+
+```
 
 # Transactional Control Language
 # Data Query Language
+- SELECT Statement is used to extract records from the table. 
+- Supported by WHERE, ORDER BY, GROUP BY, JOIN Statements. 
+- * is a wild char to represent all in the query. 
 # Data Control Language.
-=======
->>>>>>> Assignments
 # Transactional Control Language
 # Data Query Language
 # Data Control Language. 
