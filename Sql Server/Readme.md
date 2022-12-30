@@ -76,3 +76,187 @@ DELETE FROM tblEmployee WHERE EmpAddress = 'Bangalore' AND EmpId >= 1000
 # Transactional Control Language
 # Data Query Language
 # Data Control Language. 
+
+```
+--- Data Query Language----------------------------
+SELECT * FROM tblEmployee
+
+SELECT EmpName, EmpSalary from tblEmployee
+
+--MAX, MIN, TOP, AVG are called as Scalar Value Functions(SVFs) that return only one value from the expression. 
+SELECT MAX(EmpSalary) AS MaxSalary, MIN(EmpSalary) as MinSalary, AVG(EmpSalary) as AvgSalary FRom tblEmployee
+
+SELECT EmpName FROM tblEmployee Where EmpAddress = 'Bangalore'
+
+SELECT EmpName From tblEmployee WHERE EmpName LIKE 'A%'
+
+SELECT EmpID, EmpName, DeptId From tblEmployee WHERE DeptId IS NOT NULL
+
+-- Use Coalesce to replace the value based on the truthness of the condition. U can use ISNULL also
+SELECT EmpId, EmpName, COALESCE(DeptId, 0) AS DEPTINFO From tblEmployee WHERE DeptId IS NULL
+
+Select  EmpName , ISNULL(DeptId, 0) AS DEPTINFO from tblEmployee 
+
+Select TOP(10) EmpName, tblEmployee.EmpSalary From tblEmployee Where EmpSalary between 30000 and 70000 order by empSalary 
+
+SELECT * FROM tblEmployee WHERE EmpAddress = 'Mysore' OR EmpSalary < 50000
+
+SELECT EmpName, EmpSalary FROM tblEmployee WHERE EmpAddress = 'Mysore' OR EmpAddress = 'Bangalore'
+
+
+SELECT TOP 50 PERCENT * FROM tblEmployee
+
+--------------------SELECT ORDER BY--------------------------------
+SELECT tblEmployee.EmpName FROM tblEmployee ORDER BY EmpName
+
+SELECT tblEmployee.EmpName FROM tblEmployee ORDER BY EmpName DESC
+
+SELECT TOP(5) EmpName From tblEmployee WHERE EmpAddress = 'Bangalore' ORDER BY EmpName
+
+--------------------SELECT JOINS--------------------------------
+
+--Combining 2 table data on common clause is called INNER JOIN
+SELECT EMpName, tblDept.DeptName from tblEmployee JOIN tblDept
+ON tblEmployee.DeptId = tblDept.DeptId
+
+------------------LEFT JOIN is all records of the left table and matching records of right table
+Select tblEmployee.*, tblDept.DeptName from tblEmployee LEFT JOIN tblDept
+ON tblEmployee.DeptId = tblDept.DeptId
+
+--------------------Right JOIN is opposite of Left Join. 
+Select tblEmployee.*, tblDept.DeptName from tblEmployee RIGHT JOIN tblDept
+ON tblEmployee.DeptId = tblDept.DeptId
+
+
+--get the deptname and max salary of each dept. 
+Select tblDept.DeptName, MAX(tblEmployee.EmpSalary) From tblEmployee 
+RIGHT JOIN tblDept
+ON tblEmployee.DeptId = tblDept.DeptId
+group by tblDept.DeptName
+-- get the DeptName and Total Salaries of that dept.
+Select tblDept.DeptName, SUM(tblEmployee.EmpSalary) From tblEmployee 
+RIGHT JOIN tblDept
+ON tblEmployee.DeptId = tblDept.DeptId
+group by tblDept.DeptName
+-- Get EmpNames and DeptNames grouped and order by DeptName
+Select tblEmployee.EmpName, tblDept.DeptName from tblEmployee 
+JOIN tblDept ON tblEmployee.DeptId = tblDept.DeptId
+GROUP BY tblEmployee.EmpName, tblDept.DeptName
+ORDER BY tblDept.DeptName ASC
+-- Get the EmpName, EmpSalary, DeptName on DeptID
+
+--------------Self Join-------------
+Alter table tblEmployee
+Add ManagerId int 
+REFERENCES tblEmployee(EmpId)
+
+Update tblEmployee 
+Set ManagerId = 1006 
+Where EmpId < 1200 AND EmpId > 1176
+SELECT
+    employee.EmpId,
+        employee.EmpName,
+        employee.ManagerId,
+        manager.EmpName as ManagerName
+FROM tblEmployee employee
+JOIN tblEmployee manager
+ON employee.ManagerId = manager.EmpId 
+SELECT * FROM tblEmployee
+DECLARE @id INT = 1004
+IF (SELECT TOP(1) EmpID from tblEmployee) > @id
+BEGIN
+	Update tblEmployee
+	set ManagerId = (SELECT (EmpId % 5) + 1 FROM tblEmployee)
+END
+--------------------SELECT GROUP BY--------------------------------
+--Gets the Employees grouped by City
+SELECT tblEmployee.EmpAddress, COUNT(EmpName) As EmpCount FROM tblEmployee 
+Group by tblEmployee.EmpAddress
+
+SELECT tblEmployee.EmpAddress, AVG(EmpSalary) As AvgSalary FROM tblEmployee 
+Group by tblEmployee.EmpAddress
+
+SELECT tblEmployee.EmpName, EmpAddress FROM tblEmployee group by tblEmployee.EmpName, tblEmployee.EmpAddress order by tblEmployee.EmpAddress
+
+select count(empName),empSalary,empAddress from tblEmployee where empSalary<(select max(empSalary) from tblEmployee)group by empAddress, EmpSalary
+--When used with groupby, the expression must be either a part of the groupby or an Scalar Value function
+
+Select EmpAddress, SUM(EmpSalary) AS totalSalaries from tblEmployee
+group by EmpAddress
+
+---------------update statement for random filling of Dept IDs------------
+UPDATE tblEmployee SET DeptId = 7 Where DeptId IS NOT NULL AND EmpId % 2 =  0
+SELECT * FROM tblDept
+
+--------------------SELECT GROUP BY AND HAVING--------------------------------
+Select EmpAddress, SUM(EmpSalary) AS totalSalaries from tblEmployee
+group by EmpAddress
+HAVING SUM(EmpSalary) < 200000
+
+--HAVING CHECKS A CONDITION ON GROUPING....
+--------------------SUB QUERIES--------------------------------
+SELECT EmpName, EmpSalary FROM TBLEMPLOYEE WHERE EMPSALARY > (SELECT AVG(EmpSalary) FROM  tblEmployee)
+
+SELECT EmpName, DeptId from tblEmployee Where DeptId = (SELECT DeptId from tblEmployee WHERE EmpName = 'Raghunandan')
+
+
+--------------------------SELECT USING IN CONDTION--------------
+SELECT EmpName, EmpAddress FROM tblEmployee WHERE EmpAddress IN ('Bangalore','Mysore','Tumkur')
+
+
+ALTER TABLE TblEmployee
+Add ManagerName varchar(50)
+
+Update tblEmployee
+Set ManagerName = (SELECT EmpName From tblEmployee Where ManagerId = EmpId)
+
+SELECT * FROM tblEmployee
+```
+# Stored Procedures
+- Stored Procedures are sp statements that are created to execute frequently used queries.
+- A procedure is a stored program that you can pass parameters into. It does not return a value like a function does. However, it can return a success/failure status to the procedure that called it.
+- Any Query has to go thru' 2 step process: Parsing the Query and Execution of the Query. This will be a performance issue when we use a Query frequently 
+- Instead we create a Stored Proc and use it in our Front End Applications.
+- With Stored Proc, we can create it once, which will internally parse the SQL statements used in it, and while using the Proc, it does not parse the statements again, there by optimizing the performance of UR Statements execution. 
+- Create Procedure is the SQL statement for creating Stored Proc. 
+- Procedures can have parameters that can be input(Default) as well as output parameters.
+- Output parameters are created as arguments to the procedure but no value will be set, it will be set by the Procedure after the completion of the statements.  
+- U can use ALTER and DROP statements on Stored  Procedures. Refer the Example
+
+```
+Create Procedure InsertEmployee
+(
+	@empName varchar(50),
+	@empAddress varchar(MAX),
+	@empSalary int,
+	@deptId int,
+	@empId int  OUTPUT
+)
+AS
+INSERT INTO tblEmployee values(@empName, @empAddress, @empSalary, @deptId)
+SET @empId = @@IDENTITY
+```
+
+# Functions
+- Functions are stored programs that can allow to pass parameters to it and execute it like an Expression. It returns a single value. We call it as SCALAR VALUE Functions(SVFs)
+- functions are similar to Procedure in terms of creation and maintainence. 
+- But Functions can be used like expressions which with Stored Procs we cant. 
+
+```
+Create Function GetDept(@id int)
+RETURNS varchar(50)
+AS
+BEGIN
+DECLARE @deptName varchar(50)
+Set @deptName = (SELECT tblDept.DeptName from tblDept WHERE DeptId = @id)
+RETURN @deptName
+END
+----Call the Function----------------
+PRINT dbo.GetDept(4)
+```
+
+# Triggers:
+- Triggers are like events of SQL. They are sp kind of Stored procedures that are invoked automatically when an insert, delete or update operation happens to a table in the database.
+- Triggers are created by the developers to automate a process within the database after a certain action is done by the User. Usually Triggers are used to auto generate backups of the data to central repos, auto deletes after a certain time period. 
+- Triggers are like SPs only but U dont call them. It is called implicitly when an action or a condition is met. 
+- Triggers are of 3 types: Insertion Triggers, Update Triggers and Delete Triggers. 

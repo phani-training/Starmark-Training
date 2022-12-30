@@ -15,7 +15,8 @@ Create table tblEmployee
   EmpId int PRIMARY KEY IDENTITY(1001, 1),
   EmpName varchar(50) NOT NULL, 
   EmpAddress varchar(MAX) NOT NULL, 
-  EmpSalary money NOT NULL 
+  EmpSalary money NOT NULL,
+  DeptId int references tblDept(DeptId)
 )
 
 Insert into tblEmployee values('Phaniraj','Bangalore',56000, 2)
@@ -64,8 +65,68 @@ DELETE FROM TBLEMPLOYEE WHERE EMPID < 2000
 
 SELECT * FROM TBLEMPLOYEE
 TRUNCATE TABLE tblDept
-SELECT * FROM TBLEMPLOYEE
+SELECT * FROM TBLEMPLOYEE WHERE DeptId IS NOT NULL
 
-DELETE FROM TBLDEPT WHERE DeptId = 3
-
+DELETE FROM TBLDEPT WHERE DeptId = 2
+UPDATE tblEmployee SET DeptId = NULL WHERE DEPTID = 2
 SELECT COUNT(*) FRom TBLEMPLOYEE
+
+SELECT * FROM TBLDEPT
+CREATE TABLE tblCity(
+   CityId int primary key identity(1,1),
+   City VARCHAR(30) NOT NULL
+);
+INSERT INTO tblCity(City) VALUES ('Qingdao');
+INSERT INTO tblCity(City) VALUES ('Tokyo');
+INSERT INTO tblCity(City) VALUES ('Ho Chi Minh City');
+INSERT INTO tblCity(City) VALUES ('New York City');
+INSERT INTO tblCity(City) VALUES ('Shenyang');
+INSERT INTO tblCity(City) VALUES ('Atlanta');
+INSERT INTO tblCity(City) VALUES ('Mumbai');
+INSERT INTO tblCity(City) VALUES ('Brussels');
+INSERT INTO tblCity(City) VALUES ('Nizhny Novgorod');
+INSERT INTO tblCity(City) VALUES ('Munich');
+INSERT INTO tblCity(City) VALUES ('Budapest');
+INSERT INTO tblCity(City) VALUES ('Singapore');
+INSERT INTO tblCity(City) VALUES ('Bogotá');
+INSERT INTO tblCity(City) VALUES ('Kuala Lumpur');
+INSERT INTO tblCity(City) VALUES ('Harbin');
+INSERT INTO tblCity(City) VALUES ('Bangalore');
+INSERT INTO tblCity(City) VALUES ('Karachi');
+INSERT INTO tblCity(City) VALUES ('Birmingham');
+INSERT INTO tblCity(City) VALUES ('Chengdu');
+INSERT INTO tblCity(City) VALUES ('Beijing');
+INSERT INTO tblCity(City) VALUES ('Lahore');
+INSERT INTO tblCity(City) VALUES ('Perm');
+INSERT INTO tblCity(City) VALUES ('London');
+INSERT INTO tblCity(City) VALUES ('Hamburg');
+INSERT INTO tblCity(City) VALUES ('Hangzhou');
+INSERT INTO tblCity(City) VALUES ('Dongguan');
+INSERT INTO tblCity(City) VALUES ('Kyiv');
+INSERT INTO tblCity(City) VALUES ('Odessa');
+INSERT INTO tblCity(City) VALUES ('Guangzhou');
+INSERT INTO tblCity(City) VALUES ('Madrid');
+INSERT INTO tblCity(City) VALUES ('Barcelona');
+INSERT INTO tblCity(City) VALUES ('Pune');
+INSERT INTO tblCity(City) VALUES ('Jinan');
+INSERT INTO tblCity(City) VALUES ('Prague');
+INSERT INTO tblCity(City) VALUES ('Suzhou');
+INSERT INTO tblCity(City) VALUES ('Buenos Aires');
+INSERT INTO tblCity(City) VALUES ('Santiago');
+INSERT INTO tblCity(City) VALUES ('Miami');
+INSERT INTO tblCity(City) VALUES ('Guadalajara');
+INSERT INTO tblCity(City) VALUES ('Milan');
+INSERT INTO tblCity(City) VALUES ('Hyderabad');
+INSERT INTO tblCity(City) VALUES ('Volgograd');
+INSERT INTO tblCity(City) VALUES ('Riyadh');
+INSERT INTO tblCity(City) VALUES ('Lima');
+INSERT INTO tblCity(City) VALUES ('Rio de Janeiro');
+INSERT INTO tblCity(City) VALUES ('Nanjing');
+INSERT INTO tblCity(City) VALUES ('Cologne');
+INSERT INTO tblCity(City) VALUES ('Tehran');
+INSERT INTO tblCity(City) VALUES ('Seoul');
+INSERT INTO tblCity(City) VALUES ('Shanghai');
+
+Update tblEmployee 
+SET EmpAddress = (SELECT City From tblCity Where CityId % 1 = 0)
+Where EmpId % 1 = 0;
