@@ -1,0 +1,6 @@
+﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ACCOUNT MANAGER SOFTWARE~~~~~~~~~~~~~~~~~~~
+TO ADD NEW ACCOUNT-------------->PRESS 1
+TO UPDATE EXISTING ACCOUNT------>PRESS 2
+TO FIND ACCOUNT----------------->PRESS 3
+TO DELETE ACCOUNT--------------->PRESS 4
+PS: ANY OTHER KEY IS CONSIDERED AS EXIT.....................................

@@ -52,4 +52,40 @@
 - All arrays are instances of a class called System.Array. With Array class, we have APIs to get info about the array.
 - Important properties: Length, Rank. 
 - Important Methods: GetLength, Clone, Copy, CopyTo...
+- Arrays are fixed in size, U cannot add, remove the elements after they are created. U can modify the data within the array.
+
+# Functions:
+- Functions in C# are always a part of a class, struct or an interface.
+- Functions are of 2 kinds in C# =>static and instance functions. 
+- static functions give the scope of global functions. It works more like a singleton function. 
+	- static functions cannot be called by the instances of the class. 
+	- U cannot call instance methods in a static function even if it is in the same class. For that U should create an instance of the class and thru the instance U can call those methods.
+	- However, conversly U can call. 
+	- static methods are not involved in method overriding or any other OOP features.
+- instance based methods are used to manupulate the instance fields of the class. Usually the fields of the class will be hidden to the outside world. To access them, we use methods or properties.
+	- instance methods can be accessed outside the class only by creating an instance(object) of the class.
+	- U can call static methods in the instance methods. 
+	- They can be part of the OOP process like overriding, inheritance, abstractions and polymorphism.
+- Functions need parameters as dependency injectors for the method implementation. 
+- Any value that U want to send to the caller is done using return values 
+- A method in C# can have only one return value. 
+- However, U can use ref and out parameters to get the values by reference. 
+- To pass variable no of args to a function, we can use params keyword for a parameter
+	- U can have only one params parameter in a given function
+	- It should be the last of the parameter list. 
+	- U cannot pass params by ref or by out. 
+	- params are used in Console.WriteLine, 
+
+# Classes and Objects
+ - Class is a UDT Reference type that is created to represent real world Entities. 
+ - With the class, U get a host of features of OOP that could be applied on ur classes. 
+ - Classes can be nested if U want to restrict the class usage only within the Parent class. 
+ - Classes is a composition of fields(Data), properties(Accessors), methods(Functions) and events(Actions on the object). 
+ - Fields are the charectistics of the object, Functions are actions performed by the object, events are actions performed on the object. Properties are setters and getters for the private fields so that they can be used like regular variables. 
+ - When U design a class or its subclasses, U follow the principles of OOP called as SOLID Principles. 
+ - S : Single Responsibility Principle ->One class should do only one kind of operation.
+ - O : Open Closed Principle
+ - L : Luskov's substitution Principle
+ - I : Interface Segregation Principle.
+ - D : Dependency Principle. 
 
