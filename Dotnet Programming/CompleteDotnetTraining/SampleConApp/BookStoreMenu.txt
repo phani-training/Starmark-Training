@@ -1,0 +1,7 @@
+﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BOOK STORE MANAGER SOFTWARE~~~~~~~~~~~~~~~~~~~
+TO ADD NEW BOOK------------------------>PRESS 1
+TO UPDATE EXISTING BOOK---------------->PRESS 2
+TO FIND BOOK BY AUTHOR----------------->PRESS 3
+TO FIND BOOK BY TITLE------------------>PRESS 4
+TO DELETE BOOK------------------------->PRESS 5
+PS: ANY OTHER KEY IS CONSIDERED AS EXIT.....................................
