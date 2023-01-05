@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Diagnostics;
+using System.Reflection;
 namespace SampleConApp
 {
     class Utilities
@@ -16,7 +13,20 @@ namespace SampleConApp
 
         internal static int GetNumber(string question)
         {
-            return int.Parse(Prompt(question));
+            bool processing = false;
+            int result;
+            do
+            {
+                Console.WriteLine(question);
+                processing = int.TryParse(Console.ReadLine(), out result);
+            } while (!processing);
+            return result;
+        }
+
+        public static void LogMessage(string message)
+        {
+            EventLog eventLog = new EventLog("Starmark", Environment.MachineName, Assembly.GetExecutingAssembly().FullName);
+            eventLog.WriteEntry(message, EventLogEntryType.Error);
         }
     }
 }
