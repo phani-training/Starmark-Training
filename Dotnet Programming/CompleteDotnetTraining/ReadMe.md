@@ -127,6 +127,7 @@
 - base keyword is used to refer the immediate base class.
 - When a base class's non virtual function is reimplemented in the derived class, the object of the base class will hide the implementation of the derived class.
 - However, u will get a warning from the compiler when u try to reimplement the base method, warning can be removed using the new keyword that should be placed before the return type of the method. But the behavior of the method will not change, and <u>it is not method overriding</u>. 
+
 # Abstract Classes
 - Abstract class is one that contains one or more abstract methods in it. 
 - An Abstract method is a function that does not have an implementation. 
@@ -134,12 +135,14 @@
 - The class is incomplete, U cannot instantiate the class. 
 - An abstract class can have normal methods as well as virtual methods in it. 
 - If a class is derived from an abstract class, it must implement all the abstract methods of the base class, else even this class should be marked as abstract.
+
 # Interfaces:
 - Interfaces are like abstract classes that has only abstract methods. 
 - Interface names should be prefixed with I.
 - U cannot have fields or implementation methods in Interfaces(Atleast upto C#8.0)
 - Interfaces member are public, so no access specifier should be mentioned while declaring the methods. 
 - The class that implements the interface is obligated to implement all the methods of the interface. If not should be marked as abstract and the non implemented methods must be re declared using abstract keyword. 
+- An interface defines a contract which the class will comply with. The interface defines what are the operations that the class can perform. The Class would provide the real implementation of the desired Functionality
 - A Class can implement multiple interfaces at the same level. 
 - An interface can be implemented either implicitly or explicitly. 
 - Explicit Implementation would be done using the InterfaceName.Method name, in this case, U should not have access specifier defined. Refer the code. 
@@ -149,6 +152,7 @@
 - Sealed methods ensure that the method will not be overriden by the derived classes. Sealed methods can reside in normal classes. 
 - Sealed methods must be followed by override. It implies that only virtual methods of the base class can be made as sealed in their derived classes. 
 - String is a sealed class. U cannot inherit another class from it.
+
 # Exception Handling
 - Exceptions in .NET are objects of a class called System.Exception. 
 - There are exceptions for all kinds of system related runtime issues. 
