@@ -54,6 +54,18 @@
 - Important Methods: GetLength, Clone, Copy, CopyTo...
 - Arrays are fixed in size, U cannot add, remove the elements after they are created. U can modify the data within the array.
 
+# For vs. Foreach
+1. C# supports 2 iterations for Arrays and Collections: For and ForEach
+2. For Loop allows to access the elements of the collection using indexer. 
+	- For loop can be looped in bi-directional manner. 
+	- U should know the size of the collection and should be within the size while U iterate, there are chances that U might loop out of the collection. 
+	- It can be used to assign data to the elements of the collection. 
+3. Foreach is a way of traversing the array like an Enumerator.
+	- Allows to access each element within the collection.
+	- Will always ensure that the iteration does not go out of bounds and UR traversing is safe. 
+	- It is forward only and readonly.
+	- Foreach can be applied only on collections. The in section of the foreach will work only if the variable is a collection object. 
+
 # Functions:
 - Functions in C# are always a part of a class, struct or an interface.
 - Functions are of 2 kinds in C# =>static and instance functions. 
