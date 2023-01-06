@@ -1,3 +1,9 @@
+# .NET Framework
+![image](https://user-images.githubusercontent.com/79626160/210948417-4f72eb36-17f0-485b-abd0-b20564385f25.png)
+
+# .NET Execution Model
+![image](https://user-images.githubusercontent.com/79626160/210948542-bb1747ad-959a-4b73-b4f3-4b52ab108cdf.png)
+
 # C# Basics
 - C# is the programming language used for developing .NET Apps. 
 - VS is the IDE for developing .NET Apps at an industrial Scale. 
@@ -101,6 +107,8 @@
  - I : Interface Segregation Principle.
  - D : Dependency Principle. 
 
+# Typical Class Design:
+![image](https://user-images.githubusercontent.com/79626160/210948630-798a406f-063a-41e9-b3dc-32b40c6d21d0.png)
 
 # System.Object
  - C# is a language that is used in .NET which supports multiple languages.
