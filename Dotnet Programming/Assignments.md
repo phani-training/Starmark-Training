@@ -12,6 +12,7 @@ Write a Math Calc Program that allows Users to enter the values and operation an
 ### Assignment 4:
 Write a program that creates an array and displays the contents of the array. The array should be created dynamically. It means that the size, type should be set by the user of the Program. Take inputs for the values also. Finally it should display the values of the array.
 
+
 ### Assignment 5:
 Create a CRUD based App for developing a Movie Database software where the user can add, remove and update movies of his Video library. It should be a menu driven program that has 4 use cases for add, removing, finding and updating movie info in the application. 
 
@@ -114,14 +115,14 @@ The App should allow the User to Add, Remove, Update and Find the Customers by I
 
 The App should be a menu-driven App that allows the user to choose an option and perform the expected operation. The App should not terminate at any point unless chosen by the User. <br/>
 Make the App Interactive with User inputs coming from Console. <br/>
-
 Hint:
 Create separate classes for Customer, CustomerRepo which have functions of Operations, and UI Class that will handle the UI of the Application. 
-
 Make the App as modular as possible.
+
 ### Assignment 13
 Create a Console App that stores accounts of a Bank. The Account class should be an Abstract class that contains details of Id, Name, Balance, Credit, and Debit Operations. The CalculateInterest will be an abstract method. <br/>
 Implement this method in the Subclasses like SB Account, RD Account, and FD Account. <br/>Using Runtime polymorphism, create objects of the Account class and examine how the CalculateInterest function is called.
+
 ### Assignment 14
 Create an Class called Patient with Properties as ID, Name, Phone No, BillAmount<br/>
 Create Function to write the Patient Details to a File.<br/>
@@ -150,5 +151,21 @@ It should return the data of XML as a List of Employees.<br/>
 U should create the instance of the Component and call those functions in the Main to test. <br/>
 Test the code with different kinds of data and observe the results
 
+### Arrays and Coding Assignments
 
+- Write a program that takes an array as argument, it should display the transpose matrix format of the array
+- Write a program in C# Sharp to find sum of rows and display the sum as a new column for a Matrix
+- Write a C#  program to display the date of past and future fifteen years of a specified date.
+/*
+ * Base Date:        2/29/2016                                                 
+ * 
+ 1 year(s) ago:        2/28/2015                                                 
+ 2 year(s) ago:        2/28/2014                                                 
+ 3 year(s) ago:        2/28/2013                                                 
+ 4 year(s) ago:        2/29/2012                                                 
+ 5 year(s) ago:        2/28/2011  
+ */
+
+- Write a program in C# Sharp to count a total number of alphabets, digits and special characters in a string.
+- Write a program in C# to read a sentence and replace lowercase characters by uppercase and vice-versa.
 
