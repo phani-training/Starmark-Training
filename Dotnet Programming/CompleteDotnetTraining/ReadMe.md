@@ -89,3 +89,80 @@
  - I : Interface Segregation Principle.
  - D : Dependency Principle. 
 
+
+# System.Object
+ - C# is a language that is used in .NET which supports multiple languages.
+ - There is a common base type for all languages called as System.Object.
+ - C# has a keyword called object to it. 
+ - All the types of .NET are derived from object. Everything is object. 
+ - The derivation is implicit.
+ - All variables of any kind can be stored as object. This is implicit. When a variable converts to an object, it is called as BOXING. It will box(Wrap) the data as an object.
+ - U need to UNBOX the object when U want to call any specific functions on it. This operation is explicit. This is done either by using C Style casting, or using the Convert Class or using the is and as operators.
+ - object gives 4 functions that can be modified by the sub classes. 
+ - GetType ->Gets the internal data type of the object that is stored.
+ - ToString -> Gets the string representation of the object. 
+ - GetHashCode -> Gets the unique ID of the object created in the CLR.
+ - Equals(other) -> Gives a bool value that contains the logical equivalence of the object with the other
+ - Rules of UNBOXING:
+	- Any typecasting that happens during unboxing should be done to the same type from which the object is boxed. 
+	- If the objects holds the value of a integer, it must be typecasted to integer only, not to even the implicitly convertable types. 
+	- The keywords is and as can be used to check and then convert for reference types: arrays, classes, strings, delegates...
+
+# Constructors
+- Constructors are sp functions that are invoked implicitly when an object of the class is created. 
+- new keyword is the formal way used to invoke the constructor.
+- It has the same name of the class and will not have any return type.
+- U can have private constructors also. 
+- It can have parameters to it as it is like a function only. 
+- The constructor with no parameters is called Default constructor and the one with parameters are called Parameterized Constructors.
+- If U dont provide a constructor, .NET itself will have one constructor which initializes the values internally for the fields.
+
+# Method Overriding
+- A Base class method can be modified in the derived class without altering the signature of the base method. 
+- In C#, only methods that are marked as virtual in the base class can be overriden in the derived class. 
+- The derived class will override the methods using override keyword, there by notifying the system that the method has been modified. 
+- static methods cannot have virtual or override keywords.
+- Method overriding promotes a concept called RUNTIME POLYMORPHISM.
+- U can change the business rules as per the new requirements.
+- base keyword is used to refer the immediate base class.
+- When a base class's non virtual function is reimplemented in the derived class, the object of the base class will hide the implementation of the derived class.
+- However, u will get a warning from the compiler when u try to reimplement the base method, warning can be removed using the new keyword that should be placed before the return type of the method. But the behavior of the method will not change, and <u>it is not method overriding</u>. 
+# Abstract Classes
+- Abstract class is one that contains one or more abstract methods in it. 
+- An Abstract method is a function that does not have an implementation. 
+- The method must be implemented by the derived class.
+- The class is incomplete, U cannot instantiate the class. 
+- An abstract class can have normal methods as well as virtual methods in it. 
+- If a class is derived from an abstract class, it must implement all the abstract methods of the base class, else even this class should be marked as abstract.
+# Interfaces:
+- Interfaces are like abstract classes that has only abstract methods. 
+- Interface names should be prefixed with I.
+- U cannot have fields or implementation methods in Interfaces(Atleast upto C#8.0)
+- Interfaces member are public, so no access specifier should be mentioned while declaring the methods. 
+- The class that implements the interface is obligated to implement all the methods of the interface. If not should be marked as abstract and the non implemented methods must be re declared using abstract keyword. 
+- A Class can implement multiple interfaces at the same level. 
+- An interface can be implemented either implicitly or explicitly. 
+- Explicit Implementation would be done using the InterfaceName.Method name, in this case, U should not have access specifier defined. Refer the code. 
+
+# Sealed Classes and Sealed Methods
+- Sealed classes are created to ensure that the class can only be used as an object, but cannot be inherited. 
+- Sealed methods ensure that the method will not be overriden by the derived classes. Sealed methods can reside in normal classes. 
+- Sealed methods must be followed by override. It implies that only virtual methods of the base class can be made as sealed in their derived classes. 
+- String is a sealed class. U cannot inherit another class from it.
+# Exception Handling
+- Exceptions in .NET are objects of a class called System.Exception. 
+- There are exceptions for all kinds of system related runtime issues. 
+- Exceptions in C# are handled using try....catch....finally block. 
+- try block contains the code that could raise an Exception.
+- catch block can handle those exceptions that are thrown by the system or the Application as objects of class derived from System.Exception
+- finally block is more like code cleaning that is executed on all the conditions. 
+- Exceptions are raised in .NET using throw keyword.
+
+# Static Constructors and Static Classes
+- static classes are those that have a modifier static at the class declaration.
+- These classes cannot have instance methods, they are refered directly by their classname.
+- Static classes have only static members, so there will be no intention to create an instance of the same. So static keyword at the class level restricts the user from creating an instance of the class.
+- Static classes can have constructors using static keyword. Normal classes also have static constructors to inject dependencies to the static members of the class. 
+- Static constructors cannot be parameterized. U cannot access specifier to it. 
+- It is implicitly invoked by the .NET when the first reference of any static member of the class is made.
+- It is called once and only once for the execution of the program.
