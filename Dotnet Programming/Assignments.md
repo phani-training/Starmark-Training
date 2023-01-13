@@ -169,3 +169,8 @@ Test the code with different kinds of data and observe the results
 - Write a program in C# Sharp to count a total number of alphabets, digits and special characters in a string.
 - Write a program in C# to read a sentence and replace lowercase characters by uppercase and vice-versa.
 
+### Association Program
+- Create a Class by name Bill
+- Bill has properties: BillNo, BillDate, BillHolder, BillAmount
+- Create a class called Item: Id, Perticulars, UnitPrice, Quantity
+- Create a Program the provides Itemized billing for a given Customer. 

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <CustomerId>113</CustomerId>
+    <CustomerName>Aravind</CustomerName>
+    <CustomerAddress>Mangalore</CustomerAddress>
+    <BillAmount>2600</BillAmount>
+  </Customer>
+  <Customer>
+    <CustomerId>114</CustomerId>
+    <CustomerName>Vinod</CustomerName>
+    <CustomerAddress>Shimoga</CustomerAddress>
+    <BillAmount>1600</BillAmount>
+  </Customer>
+</ArrayOfCustomer>

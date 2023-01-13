@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2434B816-852F-45B1-9B11-4C61D4E223A7}</ProjectGuid>
+    <ProjectGuid>{07CBFA78-1C87-4696-8E46-F7FC820B7938}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SampleConApp</RootNamespace>
-    <AssemblyName>SampleConApp</AssemblyName>
+    <RootNamespace>SampleFrameworksApp</RootNamespace>
+    <AssemblyName>SampleFrameworksApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -17,12 +17,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,11 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SampleConApp.Ex19DateTime</StartupObject>
+    <StartupObject>SampleFrameworksApp.Practical.MainUI</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ex19DateTime.cs" />
+    <Compile Include="Ex01Collections.cs" />
+    <Compile Include="Ex02GenericCollections.cs" />
+    <Compile Include="Ex03SortingData.cs" />
+    <Compile Include="Ex05CustomCollections.cs" />
+    <Compile Include="Ex06FileIO.cs" />
+    <Compile Include="Ex08SerializationDemo.cs" />
+    <Compile Include="Practical\Collections.cs" />
+    <Compile Include="Practical\CSVFileReadWriteDemo.cs" />
+    <Compile Include="Practical\Customer.cs" />
+    <Compile Include="Practical\CustomerException.cs" />
+    <Compile Include="Practical\CustomerFactory.cs" />
+    <Compile Include="Practical\HashsetCollection.cs" />
+    <Compile Include="Practical\ListCollection.cs" />
+    <Compile Include="Practical\MainUI.cs" />
+    <Compile Include="Practical\QueueExample.cs" />
+    <Compile Include="Practical\SerializationComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ex04SortedDictionaryDemo.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="Ex07XmlFileIO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

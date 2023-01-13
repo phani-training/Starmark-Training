@@ -1,0 +1,54 @@
+Medical Research Application in C# as Console Application.
+A medical health research project has a database containing data about all diseases and their corresponding symptoms. When the patient details are entered, the system indicates the possible diseases the patient may be suffering from.
+
+Deliverables:
+- Complete source code, and configuration files
+- A brief explanation of your design and assumptions.
+- A text-file, indicating how the application can be compiled and executed (readme)
+
+Evaluation Criteria
+The marks for sections like “coding standards”, “exception handling” etc will depend on the number of features that have been completely implemented. There will not be any section/marks for “working application”. Example:
+The problem statement has 2 features to be implemented.
+The total marks for “exception handling” is 10 – for 2 features.
+The participant has completely implemented only 1 feature out of 2 (50%).
+Hence, the participant will be eligible to get a maximum of 5 marks only for “exception handling” (50%).
+
+Instructions & Assumptions
+- Include a brief explanation of your design and assumptions along with your code. This can be a in the form of code comments or a separate text file attached along with your source code.
+- This is a single-user application, hence authentication & authorization is not in scope.
+- The contents of the ZIP file containing the deliverables should be checked before it is uploaded into the FTP folder.
+- The sample fields are shown in the use-cases. You can assume the presence of other fields in the database tables to support the functionality.
+- Perform the required validations. Example: if the user is expected to enter a numeric value during any operation and he enters an alphabet, then the system rejects the input, prints an appropriate error message.
+- The User Interface  contains the following Menu Items:
+→ “Add Disease Details”
+→ “Add Symptom to Disease”
+→ “Check Patient”
+
+System Features:
+#Use case 1: Add Disease to the System
+User selects Add Disease Details, The details of the Disease will be added to the Array. 
+The inputs:
+The input form contains the following fields:
+Name: text value (e.g. “malaria”)
+Severity: Text value (e.g. “high”, “medium”, “low”)
+Cause: Enum value containing the values “external factors” and “internal disorder”
+Description: Description Text with not less than 30 charecters.
+
+#Use case 2:
+ Add Sympton to the Disease:
+The disease must have the Symptom as an association. A Disease can have multiple symptoms. 
+Inputs:
+The input form contains the following fields:
+Disease Name: User should be able  to enter only the added disease to the Application.
+Symptom Name: text value (e.g. “fever”)
+Description: text value (e.g. “body temperature exceeds 102 C”)
+
+#Use Case 3: 
+Check Patient
+Inputs:
+Patient Name: text value (e.g. “Phaniraj”)
+Symptom Name: Should enter all the symptoms, only those symptoms added in the use case 2 should be displayed and the user can enter any from the list displayed. User can add multiple symptoms each seperated by comma. 
+After the details are set, the Possible diseases related to the symptoms should be displayed to the Application as part of the Diagnosis.
+
+
+

@@ -1,6 +1,20 @@
 # .NET Framework
 ![image](https://user-images.githubusercontent.com/79626160/210948417-4f72eb36-17f0-485b-abd0-b20564385f25.png)
 
+# Versions of .NET:
+1. .NET v1 -> 2002 ->CLR and CTS.
+2. .NET v1.1 =>2003 -> Database support for multiple vendors
+3. .NET 2.0 => 2005(VS 2005) ->Generics and Anonymous methods for delegates
+4. .NET 3.0, 3.5 => 2008 ->WPF, WCF, WF
+5. .NET 4.0 =>2010 Improvised WPF, WCF, WF, Silverlight. 
+6. .NET 4.5 =>2012 SilverLight and MVC.
+7. .NET 4.6 =>2015 MVC and WEB API. 
+8. .NET 4.6.2 =>2017 C# 8.0 where new featurs of C# were introduced. Razor
+9. .NET 4.7 => 2019
+10. .NET 4.7.2 => 2020
+11. .NET 4.8 => 2022. 
+
+
 # .NET Execution Model
 ![image](https://user-images.githubusercontent.com/79626160/210948542-bb1747ad-959a-4b73-b4f3-4b52ab108cdf.png)
 
@@ -110,6 +124,7 @@
 # Typical Class Design:
 ![image](https://user-images.githubusercontent.com/79626160/210948630-798a406f-063a-41e9-b3dc-32b40c6d21d0.png)
 
+
 # System.Object
  - C# is a language that is used in .NET which supports multiple languages.
  - There is a common base type for all languages called as System.Object.
@@ -190,3 +205,52 @@
 - Static constructors cannot be parameterized. U cannot access specifier to it. 
 - It is implicitly invoked by the .NET when the first reference of any static member of the class is made.
 - It is called once and only once for the execution of the program.
+
+# Collections in .NET
+- Collections are a bunch of classes created to resolve the issues with Arrays. 
+- All the limitations of the Arrays are resolved using the Collection Classes. 
+- Collection classes are available in 2 variations: Generic and NonGeneric. 
+- NonGeneric are the oldest form of collections, almost obselete but is still available in the .NET Frameworks for backward compatibility and certain scenarios. 
+- Generics came in .NET 2.0.(2005).
+- System.Collections is the namespace for the classes related to Non Generic Collections.
+- Data is stored in Collections as objects, so the data will be boxed and unboxed every time U R accessing it, there by reducing the performance of the Collection. It is sometimes unsafe as U can store any kind of data in it.  
+- Dictionary stores the data in the form of key-value pairs very similar to MAP of STL.
+- ArrayList and HashTable are the important classes of System.Collections Namespace. 
+
+# Generic Collections
+- Generics are called as Type safe Collection Classes. 
+- Here the data is stored in the data structure as specific types, so no boxing or unboxing is required, performancewise it is faster, hense called as TYPE SAFE COLLECTIONS.
+- List is an extension of ArrayList, as both of them behave in the same manner. Both implement a same set of interfaces. IList<T> -> IList ->ICollection ->IEnumerable. 
+- List allows data to be added anywhere in the Collection. Add, Insert, InsertRange are the APIs
+- Find, FindAll are the methods used to search items in the collection. 
+- Remove and RemoveAt is used to remove Items in the Collection. 
+- HashSet<T> works similar to List<T> in creating objects, but will store only unique data in it. 
+- For Custom objects to be stored in HashSet<T>, the class of that object must override GetHashCode() and Equals methods to define the uniquness of the object. 
+- Dictionary<K,V> stores the data in the form of Key-Value pairs. 
+- SortedList<K,V> stores the data like Dictionary but are sorted based on the IComparable implementation of the Key.
+- SortedDictionary<K, V> store the key/value pairs in the sorted form and the sorting is done on the key using the Default comparison.
+- We implement IComparable<T> interface for our Entity class to allow comparing of our objects.
+- We can implement IComparer<T> interface in another class to define the comparison on multiple conditions. 
+- Comparing objects help in sorting implementation for our Entity classes. 
+
+#### Custom Collections
+- A collection class is one that implements an interface called IEnumerable. If an object of the class is usable in a foreach statement, then the class is a collection class. 
+- IEnumerable has a method called GetEnumerator which returns an IEnumerator object.
+- IEnumerator has members to iterate next element while accessing the Current element.
+- We use <b>indexers</b> to provide [] support to the Class. This makes the object usable like an Array and using [] operator to access it by index or any other kind. 
+
+# Serialization
+- Serialization is a process of saving the state of the object(The object itself) to the source(File, Memory or another process). 
+- Hibernation, Loading of Apps on Freeze are some of the instances where we use serialization. For major IPC, old Apps used Serialization as the method.
+- In .NET, we have 3 Different ways of serialization:
+- BinarySerialization: For Windows only
+- Xml Serialization: For Windows and Services
+- SOAP Serialization: For Multiple platforms.
+- For any serialization there are 3 points to work out:
+- What to serialize(Objects of .NET Classes which has an attribute Serializable), 
+- Where to Serialize(File, Memory, Process) and 
+- How to Serialize(Serialization format: Binary or xml or SOAP.
+- Any object that has to be binary serialized, must have their class declaration have an attribute Serializable. 
+- Attributes are optional Properties in .NET. Similar to Anotations. 
+- For XML serialization, U should have ur classes as public.
+- For Soap Serialization, U should reference the DLL called System.Runtime.Serialization.Formatters.Soap.dll. It works very similar to XML serialization but for the format of the data will be based on SOAP ENVELOPE. Soap Serialization was used for XML Web services cross platform data transfer. 
