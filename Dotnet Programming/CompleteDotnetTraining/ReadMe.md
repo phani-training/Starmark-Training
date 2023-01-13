@@ -254,3 +254,47 @@
 - Attributes are optional Properties in .NET. Similar to Anotations. 
 - For XML serialization, U should have ur classes as public.
 - For Soap Serialization, U should reference the DLL called System.Runtime.Serialization.Formatters.Soap.dll. It works very similar to XML serialization but for the format of the data will be based on SOAP ENVELOPE. Soap Serialization was used for XML Web services cross platform data transfer. 
+
+# Delegates
+ - Delegates are like Function Pointers of C++. They are reference types to the methods. 
+ - We also call them as functional Types. 
+ - We use delegates to pass Functions as parameters to the function declaration.
+ - Delegate signature will be like a function with return types and parameters. 
+ - Functions that use delegate can refer them in the form of parameters. 
+ - Callers of these functions pass arguments to the function as instances of the delegate.
+ - The Delegate instance(object) will point to the actual function that matches the signature of the delegate.
+ - Anonymouse methods and Lambda Expressions are improvisations over the usage of delegate instances in C#. (C# 2.0)
+ - Anonymous methods use delegate keyword to define the function. The function will be like an argument to the function that has the delegate as parameter.(
+ - Lambda Expressions are improvization on the Anonymous methods.(C# 3.5) 
+ - If A delegate instance is pointing to multiple functions, then it is called as MULTICAST DELETE. It creates an array of delegate instances in it in the form of invocationList which can be acquired using a method GetInvocationList.
+ - Methods can be added to the delegate instance using += operator and can be removed using -= operator. 
+ - System.Delegate is a .NET Class that gives the type info about the delegate Instance that U R using. 
+ 
+### Events
+- Events are actions performed by the user on the object. 
+- Very popular in UI based Applications =>Click(Button), MouseMove, MouseOver,  KeyDown, KeyPress, MouseLeave, MouseEnter, Focus, Change(Edit Boxes), SelectedIndexChanged(listBoxes) 
+- C# classes can also have Events. 
+- All events are instances of delegates. A keyword called event is used to define an event in C#.
+- Event is raised as per the logical requirement of the Application. 
+- Event object is instantiated to the method that acts as a Handler to the event. This means that if the event is raised in the component, the method will be invoked from the Component. 
+- UI related Events are all instances of a .NET Delegate called EventHandler. 
+
+
+# Threading
+- Multi Threading is a concept of running multiple threads at a time to achieve parallel programming.
+- Process : Its a private address space where ur Application will execute. A process is a running instance of an EXE. 
+- Thread is the path of execution within the process. A Process when starts, must have atleast one thread of exection. If this thread stops, ur process terminates. 
+- With OS support, U can add new threads to UR Application. This is required to perform multiple actions parallelly. 
+- In .NET, threads are objects of a class called THREAD coming under the namespace System.Threading.
+- It has a method called Start to begin the thread Execution. 
+- Every thread object is associated with a Thread Function that defines the functionality of the thread when it starts. It is done using a delegate called System.ThreadStart. Its signature is void return type with no arguments. 
+- If U want UR Thread Function to take args, then U can use another delegate called ParameterizedThreadStart.
+- The arg for the Thread function will be only one System.Object. The Programmer has to unbox it to perform any specific operations related to it.  
+- Technically all threads in .NET are by default Foreground Threads. These threads will make the caller of this thread wait till the thread operation is completed. 
+- U can make a thread as Background thread by setting the Thread's IsBackground Property to TRUE. By doing so, the Main thread will not wait for the background thread to complete its operations. 
+- Join function of the Thread makes the calling thread wait for the child thread to complete. This will be helpful for background Threads as the Main Thread wont wait for the Child Thread completion. 
+- Thread execution can be controlled by using Suspend and Resume APIs. 
+- The Current state of the thread can be obtained using property ThreadState.
+- Thread pool in C# is a collection of threads. It is used to perform tasks in the background. When a thread completes a task, it is sent to the queue wherein all the waiting threads are present. This is done so that it can be reused.
+- The System.Threading.ThreadPool class provides your application with a pool of worker threads that are managed by the system, allowing you to concentrate on application tasks rather than thread management. If you have short tasks that require background processing, the managed thread pool is an easy way to take advantage of multiple threads.
+- ThreadPool is used to call any async functionalities to be implemented without creating new threads. 
