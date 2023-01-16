@@ -49,7 +49,7 @@ namespace SampleDataAccessApp.Practical
             #endregion
 
             #region HELPERS
-            private void NonQueryExecute(string query, SqlParameter[] parameters, CommandType type)
+            private void NonQueryExecute(string query, SqlParameter[] parameters, CommandType type = CommandType.Text)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -141,7 +141,7 @@ namespace SampleDataAccessApp.Practical
 
                 try
                 {
-                    NonQueryExecute(STRDELETE, parameters.ToArray(), CommandType.Text);
+                    NonQueryExecute(STRDELETE, parameters.ToArray());
                 }
                 catch (Exception ex)
                 {
@@ -194,7 +194,7 @@ namespace SampleDataAccessApp.Practical
 
                 try
                 {
-                    NonQueryExecute(STRUPDATE, parameters.ToArray(), CommandType.Text);
+                    NonQueryExecute(STRUPDATE, parameters.ToArray());
                 }
                 catch (Exception ex)
                 {
