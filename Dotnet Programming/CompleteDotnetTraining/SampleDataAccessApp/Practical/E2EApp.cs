@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace SampleDataAccessApp.Practical
 {
@@ -40,7 +41,7 @@ namespace SampleDataAccessApp.Practical
         {
             private string strCon = string.Empty;
 
-            #region AllStatements
+            #region SqlStatements
             const string STRINSERT = "InsertEmployee";
             const string STRUPDATE = "Update tblEmployee Set EmpName = @empName, EmpAddress = @empAddress, EmpSalary = @empSalary WHERE EmpId = @empId";
             const string STRALL = "SELECT * FROM TBLEMPLOYEE";
@@ -49,7 +50,7 @@ namespace SampleDataAccessApp.Practical
             #endregion
 
             #region HELPERS
-            private void NonQueryExecute(string query, SqlParameter[] parameters, CommandType type = CommandType.Text)
+            private void NonQueryExecute(string query, SqlParameter[] parameters, CommandType type)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -77,7 +78,7 @@ namespace SampleDataAccessApp.Practical
             }
 
 
-            private DataTable GetRecords(string query, SqlParameter [] parameters, CommandType type = CommandType.Text)
+            private DataTable GetRecords(string query, SqlParameter[] parameters, CommandType type = CommandType.Text)
             {
                 SqlConnection con = new SqlConnection(strCon);
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -95,7 +96,7 @@ namespace SampleDataAccessApp.Practical
                     var reader = cmd.ExecuteReader();
                     DataTable table = new DataTable("Records");
                     table.Load(reader);
-                    return table;                    
+                    return table;
                 }
                 catch (Exception ex)
                 {
@@ -105,7 +106,7 @@ namespace SampleDataAccessApp.Practical
                 {
                     con.Close();
                 }
-            } 
+            }
             #endregion
 
 
@@ -120,7 +121,7 @@ namespace SampleDataAccessApp.Practical
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(new SqlParameter("@empName", emp.EmpName));
                 parameters.Add(new SqlParameter("@empAddress", emp.EmpAddress));
-                parameters.Add(new SqlParameter("@empSalary", emp.EmpSalary ));
+                parameters.Add(new SqlParameter("@empSalary", emp.EmpSalary));
                 parameters.Add(new SqlParameter("@deptId", emp.DeptId));
                 parameters.Add(new SqlParameter("@empId", emp.EmpId));
 
@@ -141,7 +142,7 @@ namespace SampleDataAccessApp.Practical
 
                 try
                 {
-                    NonQueryExecute(STRDELETE, parameters.ToArray());
+                    NonQueryExecute(STRDELETE, parameters.ToArray(), CommandType.Text);
                 }
                 catch (Exception ex)
                 {
@@ -153,7 +154,7 @@ namespace SampleDataAccessApp.Practical
             {
                 var table = GetRecords(STRALLDEPTS, null);
                 List<Dept> depts = new List<Dept>();
-                foreach(DataRow row in table.Rows)
+                foreach (DataRow row in table.Rows)
                 {
                     Dept dept = new Dept
                     {
@@ -169,15 +170,17 @@ namespace SampleDataAccessApp.Practical
             {
                 var table = GetRecords(STRALL, null);
                 List<Employee> emplist = new List<Employee>();
-                foreach(DataRow row in table.Rows)
+                foreach (DataRow row in table.Rows)
                 {
+                    var deptId = (SqlInt32)row[4];
+
                     Employee emp = new Employee
                     {
                         EmpId = (int)row[0],
                         EmpName = row[1].ToString(),
                         EmpAddress = row[2].ToString(),
                         EmpSalary = Convert.ToInt32(row[3]),
-                        DeptId = (int)row[4]
+                        DeptId = row.IsNull(4) ? 0 : (int)row[4]
                     };
                     emplist.Add(emp);
                 }
@@ -194,7 +197,7 @@ namespace SampleDataAccessApp.Practical
 
                 try
                 {
-                    NonQueryExecute(STRUPDATE, parameters.ToArray());
+                    NonQueryExecute(STRUPDATE, parameters.ToArray(), CommandType.Text);
                 }
                 catch (Exception ex)
                 {
@@ -212,7 +215,7 @@ namespace SampleDataAccessApp.Practical
         class MainProgram
         {
             static IDataAccessComponent component = null;
-            static string connectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString; 
+            static string connectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
             static void Main(string[] args)
             {
                 component = new DataComponent(connectionString);
@@ -237,12 +240,14 @@ namespace SampleDataAccessApp.Practical
                 //foreach(var dept in data)
                 //    Console.WriteLine(dept.DeptName);
 
-                var data = component.GetAllEmployees();
-                foreach(var emp in data)
-                    Console.WriteLine(emp.EmpName);
+                //var data = component.GetAllEmployees();
+                //foreach(var emp in data)
+                //    Console.WriteLine(emp.EmpName);
 
             }
-        }
-    }
 
+
+        }
+
+    }
 }
