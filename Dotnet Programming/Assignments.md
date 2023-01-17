@@ -174,3 +174,10 @@ Test the code with different kinds of data and observe the results
 - Bill has properties: BillNo, BillDate, BillHolder, BillAmount
 - Create a class called Item: Id, Perticulars, UnitPrice, Quantity
 - Create a Program the provides Itemized billing for a given Customer. 
+
+## Database App
+- Create a Database Application to store work on Movie Database. 
+- The database will have info about a Movie, its actors and its director.
+- U should store all the info in the database. 
+- It should perform all the CRUD operations.  
+- UR APIs should be in a DLL. The UI part will be the Console App
