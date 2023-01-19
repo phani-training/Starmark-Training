@@ -181,3 +181,9 @@ Test the code with different kinds of data and observe the results
 - U should store all the info in the database. 
 - It should perform all the CRUD operations.  
 - UR APIs should be in a DLL. The UI part will be the Console App
+
+## LINQ App:
+- Create an Application for Expense manager Software that store the data of expenses for the User.
+- It is a single User Application that stores the Expenses of the User in the database. 
+- Using LINQ provide APIs for searching the Expenses on Date, ID, Details and also provide statistics for the User
+- Statistics would be like Food Expenditure, Housing Expenditure, Travel, Provisions etc. 
