@@ -187,3 +187,4 @@ Test the code with different kinds of data and observe the results
 - It is a single User Application that stores the Expenses of the User in the database. 
 - Using LINQ provide APIs for searching the Expenses on Date, ID, Details and also provide statistics for the User
 - Statistics would be like Food Expenditure, Housing Expenditure, Travel, Provisions etc. 
+	
