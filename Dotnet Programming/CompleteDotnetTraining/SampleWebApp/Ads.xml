@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements xmlns="http://schemas.microsoft.com/AspNet/AdRotator-Advertisement-File-1.2">
+  <Ad xmlns="">
+    <ImageUrl>./Images/Airtel.png</ImageUrl>
+    <AlternateText>Airtel</AlternateText>
+    <NavigateUrl>https://www.airtel.in/</NavigateUrl>
+    <Impressions>50</Impressions>
+  </Ad>
+  <Ad xmlns="">
+    <ImageUrl>./Images/Google.jfif</ImageUrl>
+    <AlternateText>Google</AlternateText>
+    <NavigateUrl>https://www.google.co.in/</NavigateUrl>
+    <Impressions>50</Impressions>
+  </Ad>
+</Advertisements>

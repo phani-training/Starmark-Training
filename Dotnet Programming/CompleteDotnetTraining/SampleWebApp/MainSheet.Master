@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainSheet.master.cs" Inherits="SampleWebApp.MainSheet" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <script src="Scripts/jquery-3.6.3.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+       <div class="container">
+           <div class="row">
+               <h1>Welcome to ASP.NET Training!</h1>
+               <p>ASP.NET is the MS technology for developing rich Internet Applications in a Rapid Application Development(RAD) Manner. Please click on the links below to see the features!!!</p>
+               <hr />
+               <asp:Menu runat="server" Orientation="Horizontal" StaticMenuItemStyle-ItemSpacing="10" StaticMenuStyle-HorizontalPadding="10px" StaticMenuStyle-VerticalPadding="10px">
+                   <Items>
+                       <asp:MenuItem Text="Home" NavigateUrl="~/HomePage.aspx" />
+                       <asp:MenuItem Text="Calc Program" NavigateUrl="~/Ex01CalcPage.aspx"/>
+                       <asp:MenuItem Text="Entity Class" NavigateUrl="~/Products.aspx" />
+                       <asp:MenuItem Text="Database App" NavigateUrl="~/ProductApp.aspx"/>
+                       <asp:MenuItem Text="Validations" />
+                       <asp:MenuItem Text="State Management">
+                           <asp:MenuItem Text="MainPage" />
+                           <asp:MenuItem Text="Recipiant Page" />
+                           <asp:MenuItem Text="Shopping Cart" />
+                       </asp:MenuItem>
+                       <asp:MenuItem Text="Caching" />
+                       <asp:MenuItem Text="Login Controls" />
+                   </Items>
+                   <StaticHoverStyle BackColor="#CCFFCC" />
+
+<StaticMenuItemStyle HorizontalPadding="5px"></StaticMenuItemStyle>
+
+               </asp:Menu> 
+               <hr />
+           </div>
+           <div class="row">
+               <div class="col-8">
+                  <asp:ContentPlaceHolder runat="server" ID="mainContent">
+
+                  </asp:ContentPlaceHolder>
+               </div>
+               <div class="col-3">
+                   <div class="container-fluid">
+                       <div class="row">
+                           <asp:AdRotator Width="100%" Height="150px" AdvertisementFile="~/Ads.xml" runat="server" /> 
+                       </div>
+                       <div class="row">
+                           <asp:Calendar runat="server" />    
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+               <p style="text-align:center">
+                   <i>Copyrights Starmark-Training-<asp:Label Text="" ID="lblYear" runat="server" /></i>
+               </p>
+           </div>
+       </div>
+    </form>
+</body>
+</html>
