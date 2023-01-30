@@ -55,6 +55,7 @@
                </div>
            </div>
            <div class="row">
+               <hr />
                <p style="text-align:center">
                    <i>Copyrights Starmark-Training-<asp:Label Text="" ID="lblYear" runat="server" /></i>
                </p>

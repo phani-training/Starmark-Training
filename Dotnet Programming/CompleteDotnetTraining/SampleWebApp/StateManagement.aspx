@@ -62,14 +62,16 @@
                 </div>
                 <div>
                     Product Quantity:
-                    <asp:TextBox runat="server" ID="txtQuantity" Enabled="false" CssClass=" my-3 form-control" />   
+                    <asp:TextBox runat="server" ID="txtQuantity" CssClass=" my-3 form-control" />   
                 </div>
                 <div>
-                    <asp:Button Text="Add to Cart" runat="server" CssClass="btn btn-success my-3" />
+                    <asp:Button Text="Add to Cart" runat="server" CssClass="btn btn-success my-3" OnClick="Unnamed1_Click" />
+                    <asp:Button Text="Check out!!!" runat="server" CssClass="btn btn-secondary my-3" OnClick="Unnamed2_Click" />
                 </div>
             </div>
         </div>
         <div class="row">
+            <div class="col-md-10">
             <asp:DataList ID="lstRecentList" runat="server" RepeatColumns="5">
                 <ItemTemplate>
                     <div>
@@ -79,9 +81,7 @@
                     </div>
                 </ItemTemplate>
             </asp:DataList>
+                </div>
         </div>
     </div>
-    
-
-    
 </asp:Content>

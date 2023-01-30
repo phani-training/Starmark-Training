@@ -67,6 +67,7 @@
     <Content Include="Ads.xml" />
     <Content Include="App_Themes\Cool\Cool.css" />
     <Content Include="App_Themes\Hot\Hot.css" />
+    <Content Include="BillingPage.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Ex01CalcPage.aspx" />
@@ -89,6 +90,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillingPage.aspx.cs">
+      <DependentUpon>BillingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BillingPage.aspx.designer.cs">
+      <DependentUpon>BillingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ex01CalcPage.aspx.cs">
       <DependentUpon>Ex01CalcPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

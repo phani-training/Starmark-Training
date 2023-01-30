@@ -57,7 +57,24 @@ namespace SampleWebApp
             txtProductId.Text = selectedProduct.ProductId.ToString();
             txtProductName.Text = selectedProduct.ProductName;
             txtProductCost.Text = selectedProduct.Price.ToString();
+            imgSelected.ImageUrl = selectedProduct.Image;
             txtQuantity.Text = selectedProduct.Quantity.ToString();
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            //Get the Session cart...
+            var cart = Session["myCart"] as List<Product>;//unboxed
+            //Add the item to the cart...
+            selectedProduct.Quantity = int.Parse(txtQuantity.Text);
+            cart.Add(selectedProduct);
+            //Reset the value into session object. 
+            Session["myCart"] = cart;
+        }
+
+        protected void Unnamed2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BillingPage.aspx");
         }
     }
 }
