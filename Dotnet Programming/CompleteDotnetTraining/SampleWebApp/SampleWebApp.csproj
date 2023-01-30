@@ -84,6 +84,7 @@
     <Content Include="RecipiantPage.aspx" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
     <Content Include="StateManagement.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="Validation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="StateManagement.aspx.designer.cs">
       <DependentUpon>StateManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Validation.aspx.cs">
       <DependentUpon>Validation.aspx</DependentUpon>
