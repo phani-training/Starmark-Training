@@ -23,7 +23,7 @@
                     <asp:Image ImageUrl=<%#Eval("Image")%> runat="server" />
                     <p>Price: <%#Eval("Price") %></p>
                     <p>
-                    <asp:Button Text="View More" CommandName="Details" CommandArgument='<%#Eval("ProductId") %>' OnCommand="OnView_Command" runat="server" CssClass="btn btn-info"/>
+                    <asp:Button Text="Details" CommandName="Details" CommandArgument='<%#Eval("ProductId") %>' OnCommand="OnView_Command" runat="server" CssClass="btn btn-info"/>
                     </p>
                 </div>
                 <%--<div class="col-md-5">
@@ -47,31 +47,36 @@
             <div class="col-md-5">
                 <h2>Details of the selected Product</h2>
                 <div>
-                    <asp:TextBox ID="txtProductId" runat="server" Enabled="false" />
+                    Product ID: <asp:TextBox ID="txtProductId" runat="server" Enabled="false" CssClass="form-control" />
                 </div>
                 <div>
-                    <asp:TextBox ID="txtProductName" runat="server" Enabled="false" />
+                    <asp:Image ID="imgSelected"  runat="server" Width="200px" Height="150px" />
                 </div>
                 <div>
-                    <asp:TextBox ID="txtProductCost" runat="server" Enabled="false" />
+                    ProductName:
+                    <asp:TextBox ID="txtProductName" runat="server" Enabled="false" CssClass="form-control my-3" />
                 </div>
                 <div>
-                    <asp:TextBox runat="server" ID="txtQuantity" Enabled="false" />   
+                    Product Cost:
+                    <asp:TextBox ID="txtProductCost" runat="server" Enabled="false" CssClass="form-control my-3" />
                 </div>
                 <div>
-                    <asp:Button Text="Add to Cart" runat="server" />
+                    Product Quantity:
+                    <asp:TextBox runat="server" ID="txtQuantity" Enabled="false" CssClass=" my-3 form-control" />   
+                </div>
+                <div>
+                    <asp:Button Text="Add to Cart" runat="server" CssClass="btn btn-success my-3" />
                 </div>
             </div>
         </div>
         <div class="row">
             <asp:DataList ID="lstRecentList" runat="server" RepeatColumns="5">
                 <ItemTemplate>
-                    <div class="row item">
-                        <div class="col-md-8">
+                    <div>
                             <h2><%#Eval("ProductName")%></h2>
-                            <asp:Image ImageUrl=<%#Eval("Image")%> runat="server" />
+                            <asp:Image ImageUrl=<%#Eval("Image")%> runat="server" Width="100px" Height="100px" />
                             <p>Price: <%#Eval("Price") %></p>
-                        </div>
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
         </div>
