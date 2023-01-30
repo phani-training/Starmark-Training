@@ -77,8 +77,11 @@
     <Content Include="Images\iMac.jfif" />
     <Content Include="Images\iphone14.jfif" />
     <Content Include="Images\Merc.jfif" />
+    <Content Include="InputPage.aspx" />
+    <Content Include="PageLifeCycle.aspx" />
     <Content Include="ProductApp.aspx" />
     <Content Include="Products.aspx" />
+    <Content Include="RecipiantPage.aspx" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
     <Content Include="Validation.aspx" />
     <Content Include="Web.config" />
@@ -101,6 +104,13 @@
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InputPage.aspx.cs">
+      <DependentUpon>InputPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InputPage.aspx.designer.cs">
+      <DependentUpon>InputPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MainSheet.Master.cs">
       <DependentUpon>MainSheet.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,6 +119,13 @@
       <DependentUpon>MainSheet.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
+    <Compile Include="PageLifeCycle.aspx.cs">
+      <DependentUpon>PageLifeCycle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageLifeCycle.aspx.designer.cs">
+      <DependentUpon>PageLifeCycle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductApp.aspx.cs">
       <DependentUpon>ProductApp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -124,6 +141,13 @@
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipiantPage.aspx.cs">
+      <DependentUpon>RecipiantPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecipiantPage.aspx.designer.cs">
+      <DependentUpon>RecipiantPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Validation.aspx.cs">
       <DependentUpon>Validation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
