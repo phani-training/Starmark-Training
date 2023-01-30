@@ -25,23 +25,39 @@ namespace SampleWebApp
             if(e.CommandName == "Details")
             {
                 var id = Convert.ToInt32(e.CommandArgument);//Id of the Product U have selected 
-                var data = Application["products"] as List<Product>;
-                selectedProduct = data.Find((p) => p.ProductId == id);
-                txtProductId.Text = selectedProduct.ProductId.ToString();
-                txtProductName.Text = selectedProduct.ProductName;
-                txtProductCost.Text = selectedProduct.Price.ToString();
-                txtQuantity.Text = selectedProduct.Quantity.ToString();
+                getProduct(id);
 
                 //Add to the recent list...
-                var recentList = Session["recentItems"] as Queue<Product>;
-                if (recentList.Count == 5)
-                    recentList.Dequeue();
-                recentList.Enqueue(selectedProduct);
-                Session["recentItems"] = recentList;
-                var list = recentList.Reverse();
-                lstRecentList.DataSource = list;
-                lstRecentList.DataBind();
+                addToRecentList();
             }
+        }
+
+        private void addToRecentList()
+        {
+            //Get the Current list
+            var recentList = Session["recentItems"] as Queue<Product>;
+            //Count should be more than 5...
+            if (recentList.Count == 5)
+                recentList.Dequeue();
+            //Add the newly selected Item into the recentList
+            recentList.Enqueue(selectedProduct);
+            //Set it back to the Session State
+            Session["recentItems"] = recentList;
+            //Reverse the queue for getting the latest added to the top
+            var list = recentList.Reverse();
+            //set the list to the lstRecentList Control
+            lstRecentList.DataSource = list;
+            lstRecentList.DataBind();
+        }
+
+        private void getProduct(int id)
+        {
+            var data = Application["products"] as List<Product>;
+            selectedProduct = data.Find((p) => p.ProductId == id);
+            txtProductId.Text = selectedProduct.ProductId.ToString();
+            txtProductName.Text = selectedProduct.ProductName;
+            txtProductCost.Text = selectedProduct.Price.ToString();
+            txtQuantity.Text = selectedProduct.Quantity.ToString();
         }
     }
 }
