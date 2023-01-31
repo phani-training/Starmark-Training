@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="HospitalSoftware.WebForms.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Hospital Management Software</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="row">
+                <h1>Hospital Management Software</h1>
+                <p></p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <asp:Menu runat="server">
+                        <Items>
+                            <asp:MenuItem Text="Home" NavigateUrl="~/WebForms/Home.aspx" />
+                            <asp:MenuItem Text="Patient" NavigateUrl="~/WebForms/RegisterPatient.aspx" />
+                            <asp:MenuItem Text="Doctor" NavigateUrl="~/WebForms/DoctorView.aspx" />
+                            <asp:MenuItem Text="Billing" NavigateUrl="~/WebForms/Billing.aspx" />
+                        </Items>
+                    </asp:Menu>
+                </div>
+                <div class="col-md-9">
+                    <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                        <h1>Home page</h1>
+                        <p>Our Hospital has the best doctors of the Field to treat you with .........</p>
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
