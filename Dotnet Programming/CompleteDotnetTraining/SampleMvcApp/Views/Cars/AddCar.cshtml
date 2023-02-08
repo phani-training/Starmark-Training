@@ -1,0 +1,46 @@
+﻿@model SampleMvcApp.Data_Components.CarInfo
+@{
+    ViewBag.Title = "AddCar";
+}
+
+<h2>Add New Car</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    Enter the Brand Name: @Html.EditorFor((m) => m.BrandName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    Enter the Model Name: @Html.EditorFor((m) => m.Model, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    Body Type: @Html.EditorFor(m => m.BodyType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    Engine: @Html.EditorFor(m => m.Engine, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    No of Seats: @Html.EditorFor(m => m.Capacity, new { htmlAttributes = new { @class = "form-control" }})
+                </div>
+                <div>
+                    Fuel Type: @Html.DropDownListFor((m) => m.FuelType, new List<SelectListItem>
+             {
+                 new SelectListItem{ Text = "Petrol"},
+                 new SelectListItem{ Text = "Diesel"},
+                 new SelectListItem{ Text = "Hybrid"},
+                 new SelectListItem{ Text = "Electric"}
+             }, new { @class = "form-control" })
+                </div>
+                <div>
+                    Car Price: @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success m-3">Add New Car</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

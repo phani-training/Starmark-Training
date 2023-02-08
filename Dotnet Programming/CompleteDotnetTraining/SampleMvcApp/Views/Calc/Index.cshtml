@@ -1,0 +1,59 @@
+﻿
+@{
+    //ViewData
+    ViewBag.Title = "Index";
+    var items = new List<SelectListItem>
+    {
+        new SelectListItem{ Text = "Add" },
+        new SelectListItem{ Text = "Subtract" },
+        new SelectListItem{ Text = "Multiply" },
+        new SelectListItem{ Text = "Divide" },
+    };
+}
+<style>
+    .info{
+        color: indianred;
+        font-size: 20pt;
+        text-align:center;
+    }
+</style>
+<h2>Calc Program</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            @using (Html.BeginForm())
+            {
+            <p>
+                @Html.Editor("firstValue", new { htmlAttributes = new { @class = "form-control", placeholder = "Enter First Value" } })
+                @Html.DropDownList("operand", items, new { @class = "form-control" })
+                @Html.Editor("secondValue", new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Second Value" } })
+                <button class="btn btn-success"> = </button>
+            </p>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 info">
+            @*@if(ViewBag.Message != null)
+        {
+            <p>@ViewBag.Message</p>
+        }*@
+            @*@if (ViewData.ContainsKey("Message"))
+        {
+            <p>@ViewData["Message"].ToString().ToUpper()</p>//U need to Unbox if U want to do any type specific Operations.
+        }*@
+
+            @if (TempData.ContainsKey("Message"))
+            {
+                <p>@TempData["Message"].ToString().ToUpper()</p>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <p>Send the data from the Controller to the View: ViewBag(dynamic), ViewData(HashTable), TempData</p>
+        <p>Send the data from the View to the Controller: Parameters, FormsCollection</p>
+        <p>The Scope of ViewBag and ViewData is limited to the View that it is rendering. TempData allows the Data to share it among mulitple actions. </p>
+    </div>
+</div>
+

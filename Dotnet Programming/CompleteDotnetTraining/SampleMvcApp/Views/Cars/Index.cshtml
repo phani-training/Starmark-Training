@@ -1,0 +1,32 @@
+﻿@model List<SampleMvcApp.Data_Components.CarInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of cars with Us!!</h2>
+<div>
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>Car Id</th>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Car Price</th>
+            <th>Options</th>
+        </tr>
+        @foreach (var car in Model)
+        {
+        <tr>
+            <td>@car.EntryId</td>
+            <td>@car.BrandName</td>
+            <td>@car.Model</td>
+            <td>@car.Price</td>
+            <td>
+                @Html.ActionLink("ViewMore", "Edit", new { id = car.EntryId }, new { @class = "btn btn-primary mx-3" })
+               
+            </td>
+        </tr>
+        }
+    </table> 
+</div>
+

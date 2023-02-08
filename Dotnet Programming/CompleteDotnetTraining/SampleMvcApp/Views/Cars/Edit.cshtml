@@ -1,0 +1,48 @@
+﻿@model SampleMvcApp.Data_Components.CarInfo
+
+@{
+    ViewBag.Title = "Edit";
+}
+@if (ViewBag.Message != null)
+{
+    <p style="color:red">
+        @ViewBag.Message
+    </p>
+}
+else
+{
+    <h2>View Details of @Model.Model</h2>
+    <hr />
+    using (Html.BeginForm())
+    {
+        <div>
+            Car Id: @Html.EditorFor(m => m.EntryId, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Car Brand Name: @Html.EditorFor(m => m.BrandName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Car Model: @Html.EditorFor(m => m.Model, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Body Type: @Html.EditorFor(m => m.BodyType, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Engine: @Html.EditorFor(m => m.Engine, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            No of Seats: @Html.EditorFor(m => m.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Fuel Type: @Html.EditorFor(m => m.FuelType, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            Car Price: @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Modify Details</button>
+            @Html.ActionLink("X", "Delete", new { id = Model.EntryId }, new { @class = "btn btn-danger mx-3" })
+        </div>
+    }
+}
+
