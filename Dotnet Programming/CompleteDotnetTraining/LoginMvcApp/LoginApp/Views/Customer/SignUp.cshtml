@@ -1,0 +1,41 @@
+﻿@model LoginApp.DataComponents.CustomerTable
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+</head>
+<body>
+    <div>
+        <h2>New User Registration</h2>
+        @using (Html.BeginForm())
+        {
+            <div>
+                Enter the Customer Name: @Html.EditorFor(m => m.CustomerName)
+            </div>
+            <div>
+                Enter the Customer Email: @Html.EditorFor(m => m.CustomerEmail)
+                @*@Html.ActionLink("Check", "checkEmail", new { id = Model.CustomerEmail})*@
+            </div>
+            <div>
+                Enter the Mobile No: @Html.EditorFor(m => m.CustomerMobile)
+            </div>
+            <div>
+                Enter the Password: @Html.EditorFor(m => m.Password, new { htmlAttributes = new { Type = "Password" } })
+            </div>
+            <div>
+                <button>Register</button>
+            </div>
+            <div>
+                @Html.ValidationSummary()
+            </div>
+        }
+    </div>
+</body>
+</html>

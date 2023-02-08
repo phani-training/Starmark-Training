@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login Page</title>
+    <style>
+        .textBox{
+            border:2px solid lightblue;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+    <div>New User?
+        @Html.ActionLink("SignUp", "SignUp")
+    </div>
+    <div>
+        <h2>Please Login Here</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            <p class="textBox">
+                Enter the Email: @Html.Editor("email")
+            </p>
+            <p class="textBox">
+                Enter the Password: @Html.Editor("pwd")
+            </p>
+            <p>
+                <button>Login</button>
+            </p>
+            <p style="color:red">
+                @Html.ValidationSummary("", new { style = "color:red" })
+            </p>
+        }
+    </div>
+</body>
+</html>
