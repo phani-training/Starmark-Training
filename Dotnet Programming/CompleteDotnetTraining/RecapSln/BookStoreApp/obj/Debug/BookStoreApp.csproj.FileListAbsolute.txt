@@ -1,0 +1,2 @@
+D:\Starmark-Training\Dotnet Programming\RecapSln\BookStoreApp\obj\Debug\BookStoreApp.csprojAssemblyReference.cache
+D:\Starmark-Training\Dotnet Programming\RecapSln\BookStoreApp\obj\Debug\BookStoreApp.csproj.CoreCompileInputs.cache

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var options = new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "divArea"
+    };
+}
+
+<h1>Employee Management Software</h1>
+<hr />
+<div>
+    <nav class="navbar navbar-default justify-content-center">
+        <ul class="navbar-nav navbar-expand">
+            <li class="nav-item">
+                @Ajax.ActionLink("AllEmployees", "AllEmployees", null, options, new { @class = "btn btn-info align-middle" })
+            </li>
+            <li class="nav-item">
+                @Ajax.ActionLink("Add New Employee", "AddNew", null, options, new { @class = "btn btn-danger mt-3 pt-3" })
+
+            </li>
+        </ul>
+    </nav>
+</div>
+<div id="divArea">
+    Default Data
+</div>
+

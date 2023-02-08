@@ -1,0 +1,47 @@
+﻿@model EmployeeApp.ViewModels.EmployeeVM
+
+@{
+    var list = ViewData["DeptList"] as List<SelectListItem>;
+}
+<h2>Add New Employee</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <p style="color:red">
+                        @Html.ValidationSummary()
+                    </p>
+                </div>
+                <div>
+                    @Html.EditorFor(m => m.EmpName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Name" } })
+                    <p style="color:red">
+                        @Html.ValidationMessageFor(m => m.EmpName)
+                    </p>
+                </div>
+                <div>
+                    @Html.EditorFor(m => m.EmpAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Address" } })
+                    <p style="color:red">
+                        @Html.ValidationMessageFor(m => m.EmpAddress)
+                    </p>
+                </div>
+                <div>
+                    @Html.EditorFor(m => m.EmpSalary, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Salary" } })
+                    <p style="color:red">
+                        @Html.ValidationMessageFor(m => m.EmpSalary)
+                    </p>
+                </div>
+                <div>
+                    @Html.DropDownListFor(m => m.DeptId, list, new { @class = "form-control", placeholder = "Enter the DeptId" })
+
+                </div>
+                <div>
+                    <button class="btn btn-success">Add Employee</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

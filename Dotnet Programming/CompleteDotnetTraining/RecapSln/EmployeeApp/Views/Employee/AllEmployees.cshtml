@@ -1,0 +1,34 @@
+﻿@model List<DataAccessLib.Employee>
+@{ 
+    var options = new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "divArea"
+    };
+}
+<div>
+    <table border="1">
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Address</th>
+            <th>Employee Salary</th>
+            <th>Dept ID</th>
+            <th>Options</th>
+        </tr>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Address</td>
+                <td>@emp.Salary</td>
+                <td>@emp.DeptId</td>
+                <td>
+                    @Ajax.ActionLink("Edit", "Edit", new { id = emp.Id }, options, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

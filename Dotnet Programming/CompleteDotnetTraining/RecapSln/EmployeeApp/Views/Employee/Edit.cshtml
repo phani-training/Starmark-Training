@@ -1,0 +1,37 @@
+﻿@model DataAccessLib.Employee
+
+@{ 
+    var list = ViewData["DeptList"] as List<SelectListItem>;
+}
+
+<h2>Edit details of @Model.Name</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    Employee ID: @Html.DisplayFor(m => m.Id, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the ID" } })
+                </div>
+                <div>
+                    Employee Name: @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Name" } })
+                </div>
+                <div>
+                    Employee Address: @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Address" } })
+                </div>
+                <div>
+                   Employee Salary:  @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the Salary" } })
+                </div>
+                <div>
+                   Employee Dept: @Html.DropDownListFor(m => m.DeptId, list, new { @class = "form-control", placeholder = "Enter the DeptId" })
+                </div>
+                <div>
+                    <button class="btn btn-warning">Update Employee</button>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
