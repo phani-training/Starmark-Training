@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Address</th>
+                    <th>Details</th>
+                </tr>
+                <tr *ngFor="let emp of employees">
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.Name}}</td>
+                    <td>{{emp.Address}}</td>
+                    <td class="list-group" style="background-color: aqua">
+                        <button class="btn btn-info" (click)="onEdit(emp)">Edit
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <app-emp-detail [selectedEmp] = "selectedEmp"></app-emp-detail>
+        </div>
+    </div>    
+</div>
