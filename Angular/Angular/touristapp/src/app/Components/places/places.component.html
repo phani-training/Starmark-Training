@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <input type="search" width="55%" placeholder="Search Places" class="search form-control"/>
+            <input type="search" [(ngModel)]="searchCondition" width="55%" placeholder="Search Places" class="search form-control"/>
         </div>
         <div class="col-md-5">
             <button (click)="onAddNew()" class="btn btn-danger">Add New Place</button>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3" *ngFor="let item of places">
-            <p>{{item.Name | uppercase}}</p>
+        <div class="col-md-3" *ngFor="let item of places | place : searchCondition">
+            <p>{{item.Name | uppercase }}</p>
             <p>
                 <a href="#" (click)="onDetail(item)">View Details</a>
             </p>

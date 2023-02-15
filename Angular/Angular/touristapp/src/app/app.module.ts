@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { PlacesComponent } from './Components/places/places.component';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
 import { AddNewComponent } from './Components/add-new/add-new.component';
+import { PlacePipe } from './Pipes/place.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlacesComponent,
     PlaceDetailsComponent,
-    AddNewComponent
+    AddNewComponent,
+    PlacePipe
   ],
   imports: [
     BrowserModule, 

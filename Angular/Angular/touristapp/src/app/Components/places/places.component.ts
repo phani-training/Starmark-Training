@@ -8,6 +8,7 @@ import { Place } from '../../Models/place';
 })
 //We get the data for this component from our service. service gets the data from the REST API thru HttpClient. 
 export class PlacesComponent implements OnInit{
+  searchCondition : string = ""
   show : number = 0;
   places : Place[] = [];
   selectedImages : string[] = [];
