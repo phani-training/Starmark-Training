@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <input type="search" width="55%" placeholder="Search Places" class="search form-control"/>
+        </div>
+        <div class="col-md-5">
+            <button (click)="onAddNew()" class="btn btn-danger">Add New Place</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of places">
+            <p>{{item.Name | uppercase}}</p>
+            <p>
+                <a href="#" (click)="onDetail(item)">View Details</a>
+            </p>
+        </div>
+    </div>
+    <div *ngIf="show" class="row">
+        <app-add-new></app-add-new>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2>{{selectedPlace.Name}}</h2>
+                                <hr>
+                                <p>{{selectedPlace.Description}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p *ngFor="let pic of selectedImages">
+                                    <img [src]="pic" width="150px" height="150px"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

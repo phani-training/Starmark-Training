@@ -1,0 +1,27 @@
+<h1>Add New Employee</h1>
+<div class="col-md-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <p>
+                    <input [(ngModel)]="empId" placeholder="Enter the Id" />
+                </p>
+                <p>
+                    <input [(ngModel)]="empName" placeholder="Enter the Name" />
+                </p>
+                <p>
+                    <input [(ngModel)]="empAddress" placeholder="Enter the Address" />
+                </p>
+                <p>
+                    <input [(ngModel)]="empSalary" placeholder="Enter the Salary" />
+                </p>
+                <p>
+                    <input type="file" [(ngModel)]="empImg" placeholder="Pick the Image" />
+                </p>
+                <p>
+                    <button (click)="onInvokeFunc()" class="btn btn-danger">Add Employee</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
