@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 5px;
+    padding: 5px;
+}
+.error-msg{
+    color:indianred;
+    border: 2px solid blue;
+    font-size: 20pt;
+}
+
+.nav{
+    list-style-type: none;
+    display: inline-block;
+}
+.nav > li{
+    display: inline-block;
+}
+.nav > a{
+    display: inline-block;
+    width: 150px;
+    height: 65px;
+    color:red;
+    text-align: center;
+    vertical-align: top;
+    background-color: yellowgreen;
+}

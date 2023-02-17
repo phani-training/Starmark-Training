@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="mb-2">
+                <input type="number" class="form-control" [(ngModel)]="empObj.id" placeholder="Enter the Id"/>
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" [(ngModel)]="empObj.empName" placeholder="Enter the Name" />
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" [(ngModel)]="empObj.empAddress" placeholder="Enter the Address" />
+            </div>
+            <div class="mb-2">
+                <input type="number" class="form-control" [(ngModel)]="empObj.empPhone" placeholder="Enter the Contact No" />
+            </div>
+            <div class="mb-2">
+                <input type="file" class="form-control" (change)="onFileChange($event)" placeholder="Enter the Id" />
+            </div>
+            <div>
+                <button type="button" (click)="onAddEmployee()" class="btn btn-danger">Add Record</button>
+                <button type="button" class="btn btn-warning" [routerLink]="['/']" >Back</button>
+            </div>
+        </div>
+    </div>
+</div>
