@@ -1,6 +1,3 @@
-# Angular-Examples
-# Angular-Examples
-
 # What is Angular?
 Angular is a framework based on JS and TS to create Component based Web Apps that is designed to run on multiple devices and platforms. Developed by Google, it is robust and reliable Framework and easy to work with.
 Latest version is 14 released in Apr-22. 
