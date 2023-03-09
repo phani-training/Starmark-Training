@@ -1,0 +1,12 @@
+<h1>data from server</h1>
+<!-- <div>
+    {{data | json}}
+</div> -->
+<div>
+    <div class="card" *ngFor="let item of data">
+        <h3>{{item.dataName}}</h3>
+        <hr>
+        <p>{{item.dataId}}</p>
+        <p>{{item.dataDate | days}}</p>
+    </div>
+</div>
