@@ -7,7 +7,7 @@ Here is the Text that contains all the 26 alphabets in English:
 ```
 We can generate a Code for any letter in the following manner: 
 The code is a combination of 2 Digits. The First digit represens the index of the word(first occurrence), which contains the letter and the second digit represents the index of that letter in the found word.
-For eg: the letter "m" is found in the word "jumps" which is in the index 4 in the sentence and in that word, "m" is found at index 2. So the code would be 52. 
+For eg: the letter "m" is found in the word "jumps" which is in the index 4 in the sentence and in that word, "m" is found at index 2. So the code would be 42. 
 Likewise the letter "v" is found in the word "over" which is in the index 6 of the sentence and in that word, "v" is at index 1. Hense the code for v will be 61.
 Develop a Web App that allows Users to type a word and on click of a button, it should display the encoded string in a &lt;p&gt; Tag.
 
